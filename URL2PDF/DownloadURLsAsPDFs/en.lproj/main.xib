@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12113" systemVersion="16D32" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
-        <plugIn identifier="com.apple.automator.AutomatorPalette" version="11762"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12113"/>
+        <plugIn identifier="com.apple.automator.AutomatorPalette" version="12113"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -13,23 +13,23 @@
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customView id="5" userLabel="View">
-            <rect key="frame" x="0.0" y="0.0" width="500" height="120"/>
+        <customView misplaced="YES" id="5" userLabel="View">
+            <rect key="frame" x="0.0" y="0.0" width="500" height="189"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
-                <tabView controlSize="small" id="100099">
-                    <rect key="frame" x="0.0" y="14" width="500" height="100"/>
+                <tabView misplaced="YES" controlSize="small" id="100099">
+                    <rect key="frame" x="0.0" y="10" width="500" height="182"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                     <tabViewItems>
                         <tabViewItem label="General" identifier="1" id="100101">
                             <view key="view" id="100114">
-                                <rect key="frame" x="10" y="29" width="480" height="58"/>
+                                <rect key="frame" x="10" y="25" width="480" height="144"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <amPathPopUpButton verticalHuggingPriority="750" canChooseDirectories="YES" canChooseNewPaths="YES" canChooseExistingPaths="YES" placeholder="No Selection" id="100181">
-                                        <rect key="frame" x="131" y="28" width="150" height="22"/>
+                                        <rect key="frame" x="131" y="114" width="150" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <amVariablePopUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" id="100182">
+                                        <amVariablePopUpButtonCell key="cell" type="push" title="Desktop" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="1004" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" id="100182">
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="smallSystem"/>
                                             <menu key="menu" title="OtherViews" id="100183"/>
@@ -38,8 +38,8 @@
                                             <binding destination="100098" name="path" keyPath="selection.savePath" id="100185"/>
                                         </connections>
                                     </amPathPopUpButton>
-                                    <popUpButton toolTip="Page orientation" verticalHuggingPriority="750" id="100119">
-                                        <rect key="frame" x="131" y="7" width="150" height="22"/>
+                                    <popUpButton toolTip="Page orientation" verticalHuggingPriority="750" misplaced="YES" id="100119">
+                                        <rect key="frame" x="132" y="68" width="150" height="22"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <popUpButtonCell key="cell" type="push" title="Portrait" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="100125" id="100186">
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -59,8 +59,8 @@
                                             </binding>
                                         </connections>
                                     </popUpButton>
-                                    <button toolTip="Divide document into individual pages" id="100118">
-                                        <rect key="frame" x="288" y="35" width="126" height="18"/>
+                                    <button toolTip="Divide document into individual pages" misplaced="YES" id="100118">
+                                        <rect key="frame" x="288" y="71" width="126" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <buttonCell key="cell" type="check" title="Paginate Document" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="100127">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -75,7 +75,7 @@
                                         </connections>
                                     </button>
                                     <button toolTip="Save background colors and images" misplaced="YES" id="100117">
-                                        <rect key="frame" x="288" y="10" width="126" height="18"/>
+                                        <rect key="frame" x="288" y="47" width="126" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <buttonCell key="cell" type="check" title="Use Backgrounds" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" state="on" inset="2" id="100128">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -89,8 +89,8 @@
                                             </binding>
                                         </connections>
                                     </button>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="100116">
-                                        <rect key="frame" x="86" y="37" width="43" height="14"/>
+                                    <textField verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="NO" id="100116">
+                                        <rect key="frame" x="86" y="119" width="43" height="14"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" alignment="right" title="Where:" id="100129">
                                             <font key="font" metaFont="smallSystem"/>
@@ -98,8 +98,8 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="100115">
-                                        <rect key="frame" x="38" y="12" width="91" height="14"/>
+                                    <textField verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="NO" id="100115">
+                                        <rect key="frame" x="38" y="73" width="91" height="14"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" alignment="right" title="Orientation:" id="100130">
                                             <font key="font" metaFont="smallSystem"/>
@@ -107,16 +107,55 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
+                                    <button misplaced="YES" id="25l-Bg-HX8">
+                                        <rect key="frame" x="288" y="92" width="152" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="check" title="Open file after download" bezelStyle="regularSquare" imagePosition="left" controlSize="small" inset="2" id="INU-9O-yQN">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="smallSystem"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <binding destination="100098" name="value" keyPath="selection.openFile" id="cUq-WE-3J4">
+                                                <dictionary key="options">
+                                                    <bool key="NSConditionallySetsEnabled" value="NO"/>
+                                                </dictionary>
+                                            </binding>
+                                        </connections>
+                                    </button>
+                                    <textField verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="NO" id="100010">
+                                        <rect key="frame" x="38" y="17" width="391" height="17"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Find this action helpful? Please consider a donation from the About tab." id="100011">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <button misplaced="YES" id="M8R-Fr-F5w">
+                                        <rect key="frame" x="85" y="92" width="166" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="check" title="Open folder after download" bezelStyle="regularSquare" imagePosition="left" controlSize="small" inset="2" id="n0F-XW-rmD">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="smallSystem"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <binding destination="100098" name="value" keyPath="selection.openFolder" id="HPE-3u-j3q">
+                                                <dictionary key="options">
+                                                    <bool key="NSConditionallySetsEnabled" value="NO"/>
+                                                </dictionary>
+                                            </binding>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </view>
                         </tabViewItem>
                         <tabViewItem label="Advanced" identifier="2" id="100102">
                             <view key="view" id="100103">
-                                <rect key="frame" x="10" y="25" width="480" height="62"/>
+                                <rect key="frame" x="10" y="25" width="480" height="144"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="100107">
-                                        <rect key="frame" x="77" y="34" width="60" height="14"/>
+                                    <textField verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="NO" id="100107">
+                                        <rect key="frame" x="79" y="81" width="60" height="14"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" alignment="right" title="File Name:" id="100108">
                                             <font key="font" metaFont="smallSystem"/>
@@ -124,8 +163,8 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <button toolTip="Divide document into individual pages" id="100106">
-                                        <rect key="frame" x="273" y="33" width="126" height="18"/>
+                                    <button toolTip="Divide document into individual pages" misplaced="YES" id="100106">
+                                        <rect key="frame" x="275" y="80" width="126" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <buttonCell key="cell" type="check" title="Load Images" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" state="on" inset="2" id="100109">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -139,8 +178,8 @@
                                             </binding>
                                         </connections>
                                     </button>
-                                    <button toolTip="Save background colors and images" id="100105">
-                                        <rect key="frame" x="273" y="13" width="120" height="18"/>
+                                    <button toolTip="Save background colors and images" misplaced="YES" id="100105">
+                                        <rect key="frame" x="275" y="60" width="120" height="18"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <buttonCell key="cell" type="check" title="Enable JavaScript" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="100110">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -154,8 +193,8 @@
                                             </binding>
                                         </connections>
                                     </button>
-                                    <matrix verticalHuggingPriority="750" allowsEmptySelection="NO" autosizesCells="NO" id="100104">
-                                        <rect key="frame" x="140" y="12" width="129" height="38"/>
+                                    <matrix verticalHuggingPriority="750" misplaced="YES" allowsEmptySelection="NO" autosizesCells="NO" id="100104">
+                                        <rect key="frame" x="142" y="59" width="129" height="38"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         <size key="cellSize" width="125" height="18"/>
@@ -189,11 +228,11 @@
                         </tabViewItem>
                         <tabViewItem label="About" identifier="3" id="100100">
                             <view key="view" id="100131">
-                                <rect key="frame" x="10" y="25" width="480" height="62"/>
+                                <rect key="frame" x="10" y="25" width="480" height="144"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <button identifier="feedback" verticalHuggingPriority="750" id="100134">
-                                        <rect key="frame" x="209" y="2" width="65" height="20"/>
+                                    <button identifier="feedback" verticalHuggingPriority="750" misplaced="YES" id="100134">
+                                        <rect key="frame" x="209" y="50" width="65" height="20"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <buttonCell key="cell" type="smallSquare" title="Feedback" bezelStyle="smallSquare" alignment="center" controlSize="small" borderStyle="border" inset="2" id="100137">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -203,8 +242,8 @@
                                             <action selector="pushedButton:" target="100175" id="100177"/>
                                         </connections>
                                     </button>
-                                    <button identifier="website" verticalHuggingPriority="750" id="100133">
-                                        <rect key="frame" x="145" y="2" width="65" height="20"/>
+                                    <button identifier="website" verticalHuggingPriority="750" misplaced="YES" id="100133">
+                                        <rect key="frame" x="145" y="50" width="65" height="20"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <buttonCell key="cell" type="smallSquare" title="Website" bezelStyle="smallSquare" alignment="center" controlSize="small" borderStyle="border" inset="2" id="100138">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -214,8 +253,8 @@
                                             <action selector="pushedButton:" target="100175" id="100178"/>
                                         </connections>
                                     </button>
-                                    <button identifier="donate" verticalHuggingPriority="750" id="100132">
-                                        <rect key="frame" x="273" y="2" width="65" height="20"/>
+                                    <button identifier="donate" verticalHuggingPriority="750" misplaced="YES" id="100132">
+                                        <rect key="frame" x="273" y="50" width="65" height="20"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <buttonCell key="cell" type="smallSquare" title="Donate" bezelStyle="smallSquare" alignment="center" controlSize="small" borderStyle="border" inset="2" id="100139">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -226,7 +265,7 @@
                                         </connections>
                                     </button>
                                     <textField verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="NO" id="100135">
-                                        <rect key="frame" x="15" y="29" width="450" height="28"/>
+                                        <rect key="frame" x="15" y="77" width="450" height="28"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" alignment="center" id="100136">
                                             <font key="font" metaFont="smallSystem"/>
@@ -241,17 +280,8 @@ Copyright © 2005-2013 Scott Garner and 2017 Robert Welz</string>
                         </tabViewItem>
                     </tabViewItems>
                 </tabView>
-                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="100010">
-                    <rect key="frame" x="55" y="4" width="391" height="17"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Find this action helpful? Please consider a donation from the About tab." id="100011">
-                        <font key="font" metaFont="smallSystem"/>
-                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
             </subviews>
-            <point key="canvasLocation" x="131" y="169"/>
+            <point key="canvasLocation" x="131" y="203.5"/>
         </customView>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <objectController id="100098" userLabel="Parameters">
@@ -263,6 +293,8 @@ Copyright © 2005-2013 Scott Garner and 2017 Robert Welz</string>
                 <string>fileNameFrom</string>
                 <string>enableJavaScript</string>
                 <string>loadImages</string>
+                <string>openFolder</string>
+                <string>openFile</string>
             </declaredKeys>
             <connections>
                 <binding destination="-2" name="contentObject" keyPath="parameters" id="100174"/>

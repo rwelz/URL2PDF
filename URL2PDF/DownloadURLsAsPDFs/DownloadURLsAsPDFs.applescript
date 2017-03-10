@@ -82,7 +82,19 @@ script DownloadURLsAsPDFs
             else
                 set command to command & " --print-paginate=YES"
             end if
-
+            
+            if (openFolder of actionParameters as integer) is equal to 1 then
+                set command to command & " --open-folder=YES"
+            else
+                set command to command & " --open-folder=NO"
+            end if
+            
+            if (openFile of actionParameters as integer) is equal to 1 then
+                set command to command & " --open-file=YES"
+            else
+                set command to command & " --open-file=NO"
+            end if
+            
             log command
 
             set commandResult to do shell script command

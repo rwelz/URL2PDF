@@ -6,7 +6,7 @@
 	<dict>
 		<key>Resources/DownloadURLsAsPDFs.scpt</key>
 		<data>
-		o5cSAydwyNWn2t0aXyntO86PZt8=
+		c83NcZy+RPjPZHaWUDHcTcZJOa0=
 		</data>
 		<key>Resources/en.lproj/InfoPlist.strings</key>
 		<dict>
@@ -21,14 +21,14 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			1N9fV6cGD08diSezm2KgkbKDi7A=
+			Zyx/eVYxS2bJQ6damxyA5y5iMPA=
 			</data>
 			<key>optional</key>
 			<true/>
 		</dict>
 		<key>Resources/url2pdf</key>
 		<data>
-		xocfPnV0bSGKpkzBVzsmJRUqY3w=
+		5zigsCmKi8vseOw0nVjl5q8RqI4=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -37,11 +37,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			o5cSAydwyNWn2t0aXyntO86PZt8=
+			c83NcZy+RPjPZHaWUDHcTcZJOa0=
 			</data>
 			<key>hash2</key>
 			<data>
-			zk2Rpw0qDQv89n88sLzOKcy6CTenItYYFQuNGSCxHKE=
+			9yqrfvroxUz+CqWIQEiy3/YdYhryVVAOjc5xuQtCIrA=
 			</data>
 		</dict>
 		<key>Resources/en.lproj/InfoPlist.strings</key>
@@ -61,11 +61,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			1N9fV6cGD08diSezm2KgkbKDi7A=
+			Zyx/eVYxS2bJQ6damxyA5y5iMPA=
 			</data>
 			<key>hash2</key>
 			<data>
-			3PHQ/47DpZFagNjQ1anwrmJY8DwzAGmPaou9pGV7f/E=
+			00a23T7TlaZNAPCPJtQDz35wfNeoeZdU90mrnAeWbTM=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -74,11 +74,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			xocfPnV0bSGKpkzBVzsmJRUqY3w=
+			5zigsCmKi8vseOw0nVjl5q8RqI4=
 			</data>
 			<key>hash2</key>
 			<data>
-			G1WsmVRGsLkUX4cHx1Ax1GYGDzn6u9dCxrYEapbwVDw=
+			M66hyDVXrrtT7/cjrOUHTSBgJu1CITG3xHe+GWSEYHk=
 			</data>
 		</dict>
 	</dict>

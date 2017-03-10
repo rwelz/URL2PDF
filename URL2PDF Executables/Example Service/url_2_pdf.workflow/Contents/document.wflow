@@ -250,8 +250,6 @@ end run</string>
 				</array>
 				<key>OutputUUID</key>
 				<string>E29E0D3A-4726-4ED9-AD56-D687BDF8D363</string>
-				<key>StartAction</key>
-				<false/>
 				<key>UUID</key>
 				<string>F1DDD494-6CA6-4A51-95E7-4D3C45FBDF99</string>
 				<key>UnlocalizedApplications</key>
@@ -274,8 +272,6 @@ end run</string>
 						<string>0</string>
 					</dict>
 				</dict>
-				<key>conversionLabel</key>
-				<integer>0</integer>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
@@ -314,6 +310,10 @@ end run</string>
 					<dict/>
 					<key>loadImages</key>
 					<dict/>
+					<key>openFile</key>
+					<dict/>
+					<key>openFolder</key>
+					<dict/>
 					<key>printBackgrounds</key>
 					<dict/>
 					<key>printOrientation</key>
@@ -351,6 +351,10 @@ end run</string>
 					<integer>1</integer>
 					<key>loadImages</key>
 					<true/>
+					<key>openFile</key>
+					<true/>
+					<key>openFolder</key>
+					<false/>
 					<key>printBackgrounds</key>
 					<true/>
 					<key>printOrientation</key>
@@ -406,7 +410,7 @@ end run</string>
 						<key>default value</key>
 						<false/>
 						<key>name</key>
-						<string>enableJavaScript</string>
+						<string>openFolder</string>
 						<key>required</key>
 						<string>0</string>
 						<key>type</key>
@@ -417,9 +421,9 @@ end run</string>
 					<key>2</key>
 					<dict>
 						<key>default value</key>
-						<true/>
+						<false/>
 						<key>name</key>
-						<string>loadImages</string>
+						<string>enableJavaScript</string>
 						<key>required</key>
 						<string>0</string>
 						<key>type</key>
@@ -432,7 +436,7 @@ end run</string>
 						<key>default value</key>
 						<true/>
 						<key>name</key>
-						<string>printBackgrounds</string>
+						<string>loadImages</string>
 						<key>required</key>
 						<string>0</string>
 						<key>type</key>
@@ -443,9 +447,9 @@ end run</string>
 					<key>4</key>
 					<dict>
 						<key>default value</key>
-						<integer>0</integer>
+						<string>0</string>
 						<key>name</key>
-						<string>printOrientation</string>
+						<string>openFile</string>
 						<key>required</key>
 						<string>0</string>
 						<key>type</key>
@@ -456,9 +460,9 @@ end run</string>
 					<key>5</key>
 					<dict>
 						<key>default value</key>
-						<integer>0</integer>
+						<true/>
 						<key>name</key>
-						<string>fileNameFrom</string>
+						<string>printBackgrounds</string>
 						<key>required</key>
 						<string>0</string>
 						<key>type</key>
@@ -469,6 +473,32 @@ end run</string>
 					<key>6</key>
 					<dict>
 						<key>default value</key>
+						<integer>0</integer>
+						<key>name</key>
+						<string>fileNameFrom</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>6</string>
+					</dict>
+					<key>7</key>
+					<dict>
+						<key>default value</key>
+						<integer>0</integer>
+						<key>name</key>
+						<string>printOrientation</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>7</string>
+					</dict>
+					<key>8</key>
+					<dict>
+						<key>default value</key>
 						<string>~/Desktop</string>
 						<key>name</key>
 						<string>savePath</string>
@@ -477,13 +507,13 @@ end run</string>
 						<key>type</key>
 						<string>0</string>
 						<key>uuid</key>
-						<string>6</string>
+						<string>8</string>
 					</dict>
 				</dict>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>720.000000:674.000000</string>
+				<string>720.000000:743.000000</string>
 				<key>nibPath</key>
 				<string>/Volumes/MacintoshHD/Users/rwelz/Library/Automator/Download URLs as PDFs.action/Contents/Resources/en.lproj/main.nib</string>
 			</dict>
@@ -585,7 +615,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>720.000000:920.000000</string>
+				<string>720.000000:989.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -690,12 +720,10 @@ end run</string>
 						<string>0</string>
 					</dict>
 				</dict>
-				<key>conversionLabel</key>
-				<integer>0</integer>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>720.000000:1026.000000</string>
+				<string>720.000000:1095.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Set Value of Variable.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -800,12 +828,10 @@ end run</string>
 						<string>0</string>
 					</dict>
 				</dict>
-				<key>conversionLabel</key>
-				<integer>0</integer>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>720.000000:1129.000000</string>
+				<string>720.000000:1198.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Get Value of Variable.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -946,7 +972,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>720.000000:1319.000000</string>
+				<string>720.000000:1388.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Display Notification.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -1117,7 +1143,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>720.000000:1502.000000</string>
+				<string>720.000000:1571.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/German.lproj/main.nib</string>
 			</dict>
@@ -1127,61 +1153,61 @@ end run</string>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>1EA57F53-C80D-42E2-A81E-953CEB3AA425</key>
+		<key>0D0374A5-DDB6-4DF6-ABE5-1561F9891A4E</key>
+		<dict>
+			<key>from</key>
+			<string>696CD1BF-F69E-48AC-BC2C-30BCE5A85DF1 - 696CD1BF-F69E-48AC-BC2C-30BCE5A85DF1</string>
+			<key>to</key>
+			<string>2CF42B29-20C5-4D63-B46C-C60E2FF15EC1 - 2CF42B29-20C5-4D63-B46C-C60E2FF15EC1</string>
+		</dict>
+		<key>202F3955-7CBC-4F34-8F27-925E428D24BF</key>
+		<dict>
+			<key>from</key>
+			<string>453A0B28-23C1-45F6-A4DF-97E8AD3D1160 - 453A0B28-23C1-45F6-A4DF-97E8AD3D1160</string>
+			<key>to</key>
+			<string>FC2C9AFB-507C-4E22-86F1-DDD57E5A14EC - FC2C9AFB-507C-4E22-86F1-DDD57E5A14EC</string>
+		</dict>
+		<key>52B4864C-2922-47F2-BB7C-D4492F607704</key>
 		<dict>
 			<key>from</key>
 			<string>614591C3-4D92-4A30-8DEB-03B13B009ECD - 614591C3-4D92-4A30-8DEB-03B13B009ECD</string>
 			<key>to</key>
 			<string>33C5EB16-0F1C-4720-8850-177C325141D1 - 33C5EB16-0F1C-4720-8850-177C325141D1</string>
 		</dict>
-		<key>4B6014C4-01C0-4FFE-9CE3-71153C189BB3</key>
+		<key>65413C45-8A37-4AFF-95F9-F63828CC9CD8</key>
 		<dict>
 			<key>from</key>
-			<string>FC2C9AFB-507C-4E22-86F1-DDD57E5A14EC - FC2C9AFB-507C-4E22-86F1-DDD57E5A14EC</string>
-			<key>to</key>
 			<string>F1DDD494-6CA6-4A51-95E7-4D3C45FBDF99 - F1DDD494-6CA6-4A51-95E7-4D3C45FBDF99</string>
+			<key>to</key>
+			<string>696CD1BF-F69E-48AC-BC2C-30BCE5A85DF1 - 696CD1BF-F69E-48AC-BC2C-30BCE5A85DF1</string>
 		</dict>
-		<key>52625ADD-A120-4A12-8C52-E61CD299D4DF</key>
+		<key>6FA8F152-3B90-4767-973E-FB5FBFFCF83E</key>
 		<dict>
 			<key>from</key>
 			<string>57B357EB-B00D-45DC-81DB-A96A358B59ED - 57B357EB-B00D-45DC-81DB-A96A358B59ED</string>
 			<key>to</key>
 			<string>ADF2F2EE-E19E-45D4-8082-D6178F4C239C - ADF2F2EE-E19E-45D4-8082-D6178F4C239C</string>
 		</dict>
-		<key>611C1C04-1AEE-41AF-AE11-CF5CA998E336</key>
+		<key>7DBDA59B-3A2F-43DB-8C14-DAA187D08DF7</key>
 		<dict>
 			<key>from</key>
 			<string>ADF2F2EE-E19E-45D4-8082-D6178F4C239C - ADF2F2EE-E19E-45D4-8082-D6178F4C239C</string>
 			<key>to</key>
 			<string>614591C3-4D92-4A30-8DEB-03B13B009ECD - 614591C3-4D92-4A30-8DEB-03B13B009ECD</string>
 		</dict>
-		<key>85EF71F5-A4DE-4952-AD1E-6D6B1497B561</key>
-		<dict>
-			<key>from</key>
-			<string>696CD1BF-F69E-48AC-BC2C-30BCE5A85DF1 - 696CD1BF-F69E-48AC-BC2C-30BCE5A85DF1</string>
-			<key>to</key>
-			<string>2CF42B29-20C5-4D63-B46C-C60E2FF15EC1 - 2CF42B29-20C5-4D63-B46C-C60E2FF15EC1</string>
-		</dict>
-		<key>BE8ACE1B-9733-4A47-920B-5DE2EABB151D</key>
+		<key>92175D6C-1535-4E6D-8E35-BCF2610367B1</key>
 		<dict>
 			<key>from</key>
 			<string>2CF42B29-20C5-4D63-B46C-C60E2FF15EC1 - 2CF42B29-20C5-4D63-B46C-C60E2FF15EC1</string>
 			<key>to</key>
 			<string>57B357EB-B00D-45DC-81DB-A96A358B59ED - 57B357EB-B00D-45DC-81DB-A96A358B59ED</string>
 		</dict>
-		<key>C5EDB10C-0CF5-4B12-A1B2-A4DBB1D74578</key>
+		<key>9F2BD958-9044-4F28-8232-618A2CD2CA1C</key>
 		<dict>
 			<key>from</key>
-			<string>F1DDD494-6CA6-4A51-95E7-4D3C45FBDF99 - F1DDD494-6CA6-4A51-95E7-4D3C45FBDF99</string>
-			<key>to</key>
-			<string>696CD1BF-F69E-48AC-BC2C-30BCE5A85DF1 - 696CD1BF-F69E-48AC-BC2C-30BCE5A85DF1</string>
-		</dict>
-		<key>E8A22907-99AE-45B8-A3AE-93AFE15710C2</key>
-		<dict>
-			<key>from</key>
-			<string>453A0B28-23C1-45F6-A4DF-97E8AD3D1160 - 453A0B28-23C1-45F6-A4DF-97E8AD3D1160</string>
-			<key>to</key>
 			<string>FC2C9AFB-507C-4E22-86F1-DDD57E5A14EC - FC2C9AFB-507C-4E22-86F1-DDD57E5A14EC</string>
+			<key>to</key>
+			<string>F1DDD494-6CA6-4A51-95E7-4D3C45FBDF99 - F1DDD494-6CA6-4A51-95E7-4D3C45FBDF99</string>
 		</dict>
 	</dict>
 	<key>variables</key>

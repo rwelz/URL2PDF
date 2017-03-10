@@ -29,6 +29,10 @@
 		<integer>0</integer>
 		<key>loadImages</key>
 		<true/>
+		<key>openFile</key>
+		<string>0</string>
+		<key>openFolder</key>
+		<false/>
 		<key>printBackgrounds</key>
 		<true/>
 		<key>printOrientation</key>
