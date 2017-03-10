@@ -1,0 +1,673 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		D7311F681E718F1C0071A7D1 /* BuildAll */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = D7311F691E718F1C0071A7D1 /* Build configuration list for PBXAggregateTarget "BuildAll" */;
+			buildPhases = (
+				D7253F041E71928000C118C1 /* CopyFiles */,
+			);
+			dependencies = (
+				D7311F6D1E718F1F0071A7D1 /* PBXTargetDependency */,
+			);
+			name = BuildAll;
+			productName = BuildAll;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		D7253F051E7192B700C118C1 /* Download URLs as PDFs.action in CopyFiles */ = {isa = PBXBuildFile; fileRef = D7311F481E718D180071A7D1 /* Download URLs as PDFs.action */; };
+		D7253F061E7192BA00C118C1 /* url2pdf in CopyFiles */ = {isa = PBXBuildFile; fileRef = D7311F261E718BA20071A7D1 /* url2pdf */; };
+		D7311F311E718BDD0071A7D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D7311F2F1E718BDD0071A7D1 /* main.m */; };
+		D7311F321E718BDD0071A7D1 /* PDFDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = D7311F301E718BDD0071A7D1 /* PDFDownloader.m */; };
+		D7311F3A1E718C6A0071A7D1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7311F371E718C6A0071A7D1 /* Foundation.framework */; };
+		D7311F3B1E718C6A0071A7D1 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7311F381E718C6A0071A7D1 /* WebKit.framework */; };
+		D7311F3D1E718C8E0071A7D1 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7311F3C1E718C8E0071A7D1 /* AppKit.framework */; };
+		D7311F5B1E718E3F0071A7D1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7311F591E718E3F0071A7D1 /* InfoPlist.strings */; };
+		D7311F5F1E718E900071A7D1 /* DownloadURLsAsPDFs.applescript in Sources */ = {isa = PBXBuildFile; fileRef = D7311F3F1E718CE80071A7D1 /* DownloadURLsAsPDFs.applescript */; };
+		D7311F631E718EA60071A7D1 /* AppleScriptObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7311F601E718EA60071A7D1 /* AppleScriptObjC.framework */; };
+		D7311F641E718EA60071A7D1 /* Automator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7311F611E718EA60071A7D1 /* Automator.framework */; };
+		D7311F651E718EA60071A7D1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7311F621E718EA60071A7D1 /* Cocoa.framework */; };
+		D7311F661E718EC80071A7D1 /* main.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7311F401E718CF00071A7D1 /* main.xib */; };
+		D7311F671E718ECD0071A7D1 /* url2pdf in Resources */ = {isa = PBXBuildFile; fileRef = D7311F261E718BA20071A7D1 /* url2pdf */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D7311F5D1E718E8A0071A7D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D7311F1C1E718B950071A7D1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D7311F251E718BA20071A7D1;
+			remoteInfo = url2pdf;
+		};
+		D7311F6C1E718F1F0071A7D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D7311F1C1E718B950071A7D1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D7311F471E718D180071A7D1;
+			remoteInfo = "Download URLs as PDFs";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D7253F041E71928000C118C1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "${PROJECT_DIR}/Release";
+			dstSubfolderSpec = 0;
+			files = (
+				D7253F051E7192B700C118C1 /* Download URLs as PDFs.action in CopyFiles */,
+				D7253F061E7192BA00C118C1 /* url2pdf in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7311F241E718BA20071A7D1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		D7311F261E718BA20071A7D1 /* url2pdf */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = url2pdf; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7311F2E1E718BDD0071A7D1 /* PDFDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFDownloader.h; sourceTree = "<group>"; };
+		D7311F2F1E718BDD0071A7D1 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D7311F301E718BDD0071A7D1 /* PDFDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFDownloader.m; sourceTree = "<group>"; };
+		D7311F341E718C080071A7D1 /* URL2PDF-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "URL2PDF-Prefix.pch"; sourceTree = "<group>"; };
+		D7311F361E718C6A0071A7D1 /* AppKitScripting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKitScripting.framework; path = System/Library/Frameworks/AppKitScripting.framework; sourceTree = SDKROOT; };
+		D7311F371E718C6A0071A7D1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D7311F381E718C6A0071A7D1 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		D7311F3C1E718C8E0071A7D1 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		D7311F3F1E718CE80071A7D1 /* DownloadURLsAsPDFs.applescript */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.applescript; name = DownloadURLsAsPDFs.applescript; path = DownloadURLsAsPDFs/DownloadURLsAsPDFs.applescript; sourceTree = "<group>"; };
+		D7311F411E718CF00071A7D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = DownloadURLsAsPDFs/en.lproj/main.xib; sourceTree = "<group>"; };
+		D7311F481E718D180071A7D1 /* Download URLs as PDFs.action */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Download URLs as PDFs.action"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7311F571E718D5E0071A7D1 /* DownloadURLsAsPDFs-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "DownloadURLsAsPDFs-Info.plist"; path = "DownloadURLsAsPDFs/DownloadURLsAsPDFs-Info.plist"; sourceTree = "<group>"; };
+		D7311F5A1E718E3F0071A7D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = DownloadURLsAsPDFs/en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D7311F5C1E718E4F0071A7D1 /* DownloadURLsAsPDFs-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "DownloadURLsAsPDFs-Prefix.pch"; path = "DownloadURLsAsPDFs/DownloadURLsAsPDFs-Prefix.pch"; sourceTree = "<group>"; };
+		D7311F601E718EA60071A7D1 /* AppleScriptObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppleScriptObjC.framework; path = System/Library/Frameworks/AppleScriptObjC.framework; sourceTree = SDKROOT; };
+		D7311F611E718EA60071A7D1 /* Automator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Automator.framework; path = System/Library/Frameworks/Automator.framework; sourceTree = SDKROOT; };
+		D7311F621E718EA60071A7D1 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D7311F231E718BA20071A7D1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7311F3D1E718C8E0071A7D1 /* AppKit.framework in Frameworks */,
+				D7311F3A1E718C6A0071A7D1 /* Foundation.framework in Frameworks */,
+				D7311F3B1E718C6A0071A7D1 /* WebKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7311F441E718D180071A7D1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7311F631E718EA60071A7D1 /* AppleScriptObjC.framework in Frameworks */,
+				D7311F641E718EA60071A7D1 /* Automator.framework in Frameworks */,
+				D7311F651E718EA60071A7D1 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D7311F1B1E718B950071A7D1 = {
+			isa = PBXGroup;
+			children = (
+				D7311F281E718BA20071A7D1 /* url2pdf */,
+				D7311F3E1E718CC50071A7D1 /* DownloadURLsAsPDFs */,
+				D7311F271E718BA20071A7D1 /* Products */,
+				D7311F351E718C6A0071A7D1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D7311F271E718BA20071A7D1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D7311F261E718BA20071A7D1 /* url2pdf */,
+				D7311F481E718D180071A7D1 /* Download URLs as PDFs.action */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D7311F281E718BA20071A7D1 /* url2pdf */ = {
+			isa = PBXGroup;
+			children = (
+				D7311F2E1E718BDD0071A7D1 /* PDFDownloader.h */,
+				D7311F2F1E718BDD0071A7D1 /* main.m */,
+				D7311F301E718BDD0071A7D1 /* PDFDownloader.m */,
+				D7311F331E718BF20071A7D1 /* Supporting Files */,
+			);
+			path = url2pdf;
+			sourceTree = "<group>";
+		};
+		D7311F331E718BF20071A7D1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D7311F341E718C080071A7D1 /* URL2PDF-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D7311F351E718C6A0071A7D1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D7311F601E718EA60071A7D1 /* AppleScriptObjC.framework */,
+				D7311F611E718EA60071A7D1 /* Automator.framework */,
+				D7311F621E718EA60071A7D1 /* Cocoa.framework */,
+				D7311F3C1E718C8E0071A7D1 /* AppKit.framework */,
+				D7311F361E718C6A0071A7D1 /* AppKitScripting.framework */,
+				D7311F371E718C6A0071A7D1 /* Foundation.framework */,
+				D7311F381E718C6A0071A7D1 /* WebKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D7311F3E1E718CC50071A7D1 /* DownloadURLsAsPDFs */ = {
+			isa = PBXGroup;
+			children = (
+				D7311F3F1E718CE80071A7D1 /* DownloadURLsAsPDFs.applescript */,
+				D7311F401E718CF00071A7D1 /* main.xib */,
+				D7311F421E718CFC0071A7D1 /* Supporting Files */,
+			);
+			name = DownloadURLsAsPDFs;
+			sourceTree = "<group>";
+		};
+		D7311F421E718CFC0071A7D1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D7311F571E718D5E0071A7D1 /* DownloadURLsAsPDFs-Info.plist */,
+				D7311F591E718E3F0071A7D1 /* InfoPlist.strings */,
+				D7311F5C1E718E4F0071A7D1 /* DownloadURLsAsPDFs-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D7311F251E718BA20071A7D1 /* url2pdf */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D7311F2B1E718BA20071A7D1 /* Build configuration list for PBXNativeTarget "url2pdf" */;
+			buildPhases = (
+				D7311F221E718BA20071A7D1 /* Sources */,
+				D7311F231E718BA20071A7D1 /* Frameworks */,
+				D7311F241E718BA20071A7D1 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = url2pdf;
+			productName = url2pdf;
+			productReference = D7311F261E718BA20071A7D1 /* url2pdf */;
+			productType = "com.apple.product-type.tool";
+		};
+		D7311F471E718D180071A7D1 /* Download URLs as PDFs */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D7311F541E718D180071A7D1 /* Build configuration list for PBXNativeTarget "Download URLs as PDFs" */;
+			buildPhases = (
+				D7311F431E718D180071A7D1 /* Sources */,
+				D7311F441E718D180071A7D1 /* Frameworks */,
+				D7311F451E718D180071A7D1 /* Resources */,
+				D7311F461E718D180071A7D1 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D7311F5E1E718E8A0071A7D1 /* PBXTargetDependency */,
+			);
+			name = "Download URLs as PDFs";
+			productName = "Download URLs as PDFs";
+			productReference = D7311F481E718D180071A7D1 /* Download URLs as PDFs.action */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D7311F1C1E718B950071A7D1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				TargetAttributes = {
+					D7311F251E718BA20071A7D1 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 4AZCM9652H;
+						ProvisioningStyle = Manual;
+					};
+					D7311F471E718D180071A7D1 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 4AZCM9652H;
+						ProvisioningStyle = Manual;
+					};
+					D7311F681E718F1C0071A7D1 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = D7311F1F1E718B950071A7D1 /* Build configuration list for PBXProject "URL2PDF" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D7311F1B1E718B950071A7D1;
+			productRefGroup = D7311F271E718BA20071A7D1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D7311F251E718BA20071A7D1 /* url2pdf */,
+				D7311F471E718D180071A7D1 /* Download URLs as PDFs */,
+				D7311F681E718F1C0071A7D1 /* BuildAll */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D7311F451E718D180071A7D1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7311F5B1E718E3F0071A7D1 /* InfoPlist.strings in Resources */,
+				D7311F661E718EC80071A7D1 /* main.xib in Resources */,
+				D7311F671E718ECD0071A7D1 /* url2pdf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D7311F461E718D180071A7D1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "amlint \"${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D7311F221E718BA20071A7D1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7311F311E718BDD0071A7D1 /* main.m in Sources */,
+				D7311F321E718BDD0071A7D1 /* PDFDownloader.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7311F431E718D180071A7D1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7311F5F1E718E900071A7D1 /* DownloadURLsAsPDFs.applescript in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D7311F5E1E718E8A0071A7D1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D7311F251E718BA20071A7D1 /* url2pdf */;
+			targetProxy = D7311F5D1E718E8A0071A7D1 /* PBXContainerItemProxy */;
+		};
+		D7311F6D1E718F1F0071A7D1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D7311F471E718D180071A7D1 /* Download URLs as PDFs */;
+			targetProxy = D7311F6C1E718F1F0071A7D1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D7311F401E718CF00071A7D1 /* main.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D7311F411E718CF00071A7D1 /* en */,
+			);
+			name = main.xib;
+			sourceTree = "<group>";
+		};
+		D7311F591E718E3F0071A7D1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D7311F5A1E718E3F0071A7D1 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D7311F201E718B950071A7D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+			};
+			name = Debug;
+		};
+		D7311F211E718B950071A7D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+			};
+			name = Release;
+		};
+		D7311F2C1E718BA20071A7D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 4AZCM9652H;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
+				STRIP_INSTALLED_PRODUCT = YES;
+			};
+			name = Debug;
+		};
+		D7311F2D1E718BA20071A7D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 4AZCM9652H;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
+				STRIP_INSTALLED_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D7311F551E718D180071A7D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 4AZCM9652H;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "DownloadURLsAsPDFs/DownloadURLsAsPDFs-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Automator";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_OSAFLAGS = "-x -t 0 -c 0";
+				PRODUCT_BUNDLE_IDENTIFIER = "Project-J38.Download-URLs-as-PDFs";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
+				STRIP_INSTALLED_PRODUCT = YES;
+				WRAPPER_EXTENSION = action;
+			};
+			name = Debug;
+		};
+		D7311F561E718D180071A7D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 4AZCM9652H;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "DownloadURLsAsPDFs/DownloadURLsAsPDFs-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Automator";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_OSAFLAGS = "-x -t 0 -c 0";
+				PRODUCT_BUNDLE_IDENTIFIER = "Project-J38.Download-URLs-as-PDFs";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
+				STRIP_INSTALLED_PRODUCT = YES;
+				WRAPPER_EXTENSION = action;
+			};
+			name = Release;
+		};
+		D7311F6A1E718F1C0071A7D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+			};
+			name = Debug;
+		};
+		D7311F6B1E718F1C0071A7D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D7311F1F1E718B950071A7D1 /* Build configuration list for PBXProject "URL2PDF" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7311F201E718B950071A7D1 /* Debug */,
+				D7311F211E718B950071A7D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D7311F2B1E718BA20071A7D1 /* Build configuration list for PBXNativeTarget "url2pdf" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7311F2C1E718BA20071A7D1 /* Debug */,
+				D7311F2D1E718BA20071A7D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D7311F541E718D180071A7D1 /* Build configuration list for PBXNativeTarget "Download URLs as PDFs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7311F551E718D180071A7D1 /* Debug */,
+				D7311F561E718D180071A7D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D7311F691E718F1C0071A7D1 /* Build configuration list for PBXAggregateTarget "BuildAll" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7311F6A1E718F1C0071A7D1 /* Debug */,
+				D7311F6B1E718F1C0071A7D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D7311F1C1E718B950071A7D1 /* Project object */;
+}
