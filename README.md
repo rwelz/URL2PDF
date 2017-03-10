@@ -12,6 +12,11 @@ http://scott.j38.net/
 I finally gave up on trying to update the original action to work in Lion and decided to take a completely different approach. All of the heavy lifting is now handled by a commandline utility called URL2PDF, which is wrapped by an AppleScript-based Automator Action. 
 
 #Change Log
+3/10/17 version 6.2.5 by Robert Welz (welz.willi@gmail.com)
+- added "open folder" and "open file" options to open folder which contains pdf or open pdf in defauklt viewer after download.
+
+3/10/17 version 6.2.4 by Robert Welz (welz.willi@gmail.com)
+Better example workflow
 
 3/9/17 version 6.2.3 by Robert Welz (welz.willi@gmail.com)
 - new project layout - now its only one project. Just build the "BuildAll" target.

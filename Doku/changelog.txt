@@ -1,3 +1,6 @@
+3/10/17 version 6.2.5 by Robert Welz (welz.willi@gmail.com)
+- added "open folder" and "open file" options to open folder which contains pdf or open pdf in defauklt viewer after download.
+
 3/10/17 version 6.2.4 by Robert Welz (welz.willi@gmail.com)
 Better example workflow
 
