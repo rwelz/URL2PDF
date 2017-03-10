@@ -12,6 +12,8 @@
 #import "PDFDownloader.h"
 #include <getopt.h>
 
+NSString * const kDefaultDirectory = @"~/URL2PDF Output/";
+
 void printUsage() {
     printf("The original URL2PDF 6.1 (c) 2012 Scott Garner\n");
     printf("URL2PDF 6.2.3 (c) 2017 Robert Welz\n");
@@ -26,6 +28,9 @@ void printUsage() {
     printf("  --print-orientation=<VALUE>   -o      Orientation, Portrait or Landscape - Landscape is default if paramter not given\n");
     printf("  --autosave-name=<VALUE>       -n      Filename source: URL or Title - Filename from page title is default if paramter not given\n");
     printf("  --autosave-path=<PATH>        -p      Save path - ~/URL2PDF Output/ is default if paramter not given\n");
+    printf("  --open-file=<BOOL>            -c      Opens folder containing pdf after successful download\n");
+    printf("  --open-folder=<BOOL>          -d      Opens pdf in viewer after successful download\n");
+    printf("  --autosave-path=<PATH>        -p      Save path - ~/URL2PDF Output/ is default if paramter not given\n");
     printf("\n  Example:\n  url2pdf -u http://www.apple.de\n");
 }
 
@@ -34,37 +39,40 @@ NSMutableDictionary* parseOptions(const int argc, char **argv) {
     
     if (argc == 0) {
         printUsage();
-        exit(EXIT_FAILURE);        
+        exit(EXIT_FAILURE);
     }
     
     // Defaults
     
-    NSString *directory = @"~/URL2PDF Output/";
     
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
                                        [NSNull null] , @"url",
-                                       directory, @"savePath",
+                                       //kDefaultDirectory, @"savePath",
                                        [NSNumber numberWithInt:1], @"fileNameFrom",
                                        [NSNumber numberWithInt:1], @"printOrientation",
                                        [NSNumber numberWithBool:NO], @"printPaginate",
                                        [NSNumber numberWithBool:YES], @"printBackgrounds",
                                        [NSNumber numberWithBool:YES], @"loadImages",
                                        [NSNumber numberWithBool:NO], @"enableJavaScript",
-                                       nil];    
+                                       [NSNumber numberWithBool:NO], @"openFile",
+                                       [NSNumber numberWithBool:NO], @"openFolder",
+                                       nil];
     
     // Option Table
     
-    char *shortOptions = "hu:j:g:b:i:o:n:p:";
+    char *shortOptions = "hu:j:g:b:i:o:n:c:d:p:";
     const struct option longOptions[] = {
         {"help",                no_argument,        NULL,   'h'},
         {"url",                 required_argument,  NULL,   'u'},
         {"enable-javascript",   required_argument,  NULL,   'j'},
-        {"print-paginate",      required_argument,  NULL,   'g'},    
-        {"print-backgrounds",   required_argument,  NULL,   'b'}, 
-        {"load-images",         required_argument,  NULL,   'i'},   
+        {"print-paginate",      required_argument,  NULL,   'g'},
+        {"print-backgrounds",   required_argument,  NULL,   'b'},
+        {"load-images",         required_argument,  NULL,   'i'},
         {"print-orientation",   required_argument,  NULL,   'o'},
-        {"autosave-name",       required_argument,  NULL,   'n'}, 
-        {"autosave-path",       required_argument,  NULL,   'p'},        
+        {"autosave-name",       required_argument,  NULL,   'n'},
+        {"autosave-path",       required_argument,  NULL,   'p'},
+        {"open-file",           required_argument,  NULL,   'c'},
+        {"open-folder",         required_argument,  NULL,   'd'},
         {NULL,                  0,                  NULL,   0},
     };
     
@@ -109,7 +117,7 @@ NSMutableDictionary* parseOptions(const int argc, char **argv) {
                     printf("Invalid argument for --print-paginate\n");
                     exit(EXIT_FAILURE);
                 }
-                break;    
+                break;
                 
             case 'i':
                 noParameterGiven = NO;
@@ -121,7 +129,7 @@ NSMutableDictionary* parseOptions(const int argc, char **argv) {
                     printf("Invalid argument for --load-images\n");
                     exit(EXIT_FAILURE);
                 }
-                break;         
+                break;
                 
             case 'b':
                 noParameterGiven = NO;
@@ -133,7 +141,7 @@ NSMutableDictionary* parseOptions(const int argc, char **argv) {
                     printf("Invalid argument for --print-backgrounds\n");
                     exit(EXIT_FAILURE);
                 }
-                break;       
+                break;
                 
             case 'o':
                 noParameterGiven = NO;
@@ -145,7 +153,7 @@ NSMutableDictionary* parseOptions(const int argc, char **argv) {
                     printf("Invalid argument for --print-orientation\n");
                     exit(EXIT_FAILURE);
                 }
-                break; 
+                break;
                 
             case 'n':
                 noParameterGiven = NO;
@@ -157,14 +165,29 @@ NSMutableDictionary* parseOptions(const int argc, char **argv) {
                     printf("Invalid argument for --autosave-name\n");
                     exit(EXIT_FAILURE);
                 }
-                break;  
+                break;
                 
             case 'p':
                 noParameterGiven = NO;
                 [parameters setObject:[[NSString stringWithFormat:@"%s",optarg]stringByExpandingTildeInPath] forKey:@"savePath"];
-                directory = [NSString stringWithFormat:@"%s",optarg];
                 break;
-                    
+                
+            case 'c':
+                noParameterGiven = NO;
+                if (strcasecmp(optarg,"YES") == 0)
+                    [parameters setObject:[NSNumber numberWithBool:YES] forKey:@"openFile"];
+                else
+                    [parameters setObject:[NSNumber numberWithBool:NO] forKey:@"openFile"];
+                break;
+                
+            case 'd':
+                noParameterGiven = NO;
+                if (strcasecmp(optarg,"YES") == 0)
+                    [parameters setObject:[NSNumber numberWithBool:YES] forKey:@"openFolder"];
+                else
+                    [parameters setObject:[NSNumber numberWithBool:NO] forKey:@"openFolder"];
+                break;
+                
             default:
                 printUsage();
                 exit(EXIT_FAILURE);
@@ -175,15 +198,6 @@ NSMutableDictionary* parseOptions(const int argc, char **argv) {
     {
         printUsage();
         exit(EXIT_SUCCESS);
-    }
-    
-    NSFileManager *fileManager= [NSFileManager defaultManager];
-    NSError *error = nil;
-    if(![fileManager createDirectoryAtPath:[directory stringByExpandingTildeInPath] withIntermediateDirectories:NO attributes:nil error:&error]) {
-    // An error has occurred, do something to handle it
-    NSError *undelyingError = [[error userInfo] objectForKey:NSUnderlyingErrorKey];
-    if([undelyingError code] != 17) // suppress directory exist error
-        NSLog(@"Failed to create directory \"%@\". Error: %@", directory, error);
     }
     
     if ([parameters objectForKey:@"url"] == [NSNull null]) {
@@ -202,27 +216,65 @@ int main(const int argc, char **argv)
         
         [NSApplication sharedApplication];
         
-//        NSArray *input = [[NSArray alloc] initWithObjects:
-//                          [NSURL URLWithString:@"http://cargocollective.com/coryschmitz"],
-//                          [NSURL URLWithString:@"http://mareodomo.com/"],
-//                          [NSURL URLWithString:@"http://appleinsider.com/"],
-//                          [NSURL URLWithString:@"http://bing.com/"],
-//                          [NSURL URLWithString:@"http://google.com/"],
-//                          [NSURL URLWithString:@"http://yahoo.com/"],
-//                          nil];    
+        //        NSArray *input = [[NSArray alloc] initWithObjects:
+        //                          [NSURL URLWithString:@"http://cargocollective.com/coryschmitz"],
+        //                          [NSURL URLWithString:@"http://mareodomo.com/"],
+        //                          [NSURL URLWithString:@"http://appleinsider.com/"],
+        //                          [NSURL URLWithString:@"http://bing.com/"],
+        //                          [NSURL URLWithString:@"http://google.com/"],
+        //                          [NSURL URLWithString:@"http://yahoo.com/"],
+        //                          nil];
         
         NSMutableDictionary *parameters = parseOptions(argc, argv);
-//        NSLog(@"%@",parameters);
-                
+        //        NSLog(@"%@",parameters);
+        
+        BOOL openFolder = [[ parameters objectForKey:@"openFolder"] boolValue];
+        BOOL openFile = [[ parameters objectForKey:@"openFile"] boolValue];
+        NSString *savePath = [ parameters objectForKey:@"savePath"];
+        
+        if((savePath == nil) || ([savePath isEqualToString:@""]))
+        {
+            [parameters setObject:[NSString stringWithFormat:@"%s",[kDefaultDirectory UTF8String]] forKey:@"savePath"];
+            
+            // create directory
+            
+            NSFileManager *fileManager= [NSFileManager defaultManager];
+            NSError *error = nil;
+            if(![fileManager createDirectoryAtPath:[kDefaultDirectory stringByExpandingTildeInPath] withIntermediateDirectories:NO attributes:nil error:&error]) {
+                // An error has occurred, do something to handle it
+                NSError *undelyingError = [[error userInfo] objectForKey:NSUnderlyingErrorKey];
+                if([undelyingError code] != 17) // suppress directory exist error
+                    NSLog(@"Failed to create directory \"%@\". Error: %@", kDefaultDirectory, error);
+            }
+        }
+        
+        
+        
+        
         NSArray *input = [[NSArray alloc] initWithObjects:
                           [NSURL URLWithString:[parameters objectForKey:@"url"]],
                           nil];
         
         PDFDownloader *downloader = [[PDFDownloader alloc] init];
         
-        [downloader downloadURLs:input parameters:parameters];          
-        
-        
+        NSArray *output = [downloader downloadURLs:input parameters:parameters];
+        if(openFolder == YES)
+        {
+            if([output count] > 0)
+            {
+                NSURL *fileURL = [NSURL fileURLWithPath: output[0]];
+                NSURL *folderURL = [fileURL URLByDeletingLastPathComponent];
+                [[NSWorkspace sharedWorkspace] openURL: folderURL];
+            }
+        }
+        if(openFile == YES)
+        {
+            for (NSString *savePath in output)
+            {
+                NSURL *fileURL = [NSURL fileURLWithPath: savePath];
+                [[NSWorkspace sharedWorkspace] openURL: fileURL];
+            }
+        }
     }
     return 0;
 }
