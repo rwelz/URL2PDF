@@ -29,6 +29,10 @@
 		<integer>0</integer>
 		<key>loadImages</key>
 		<true/>
+		<key>openFile</key>
+		<string>0</string>
+		<key>openFolder</key>
+		<false/>
 		<key>printBackgrounds</key>
 		<true/>
 		<key>printOrientation</key>
@@ -114,17 +118,17 @@
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>8W132p</string>
+	<string>8C1002</string>
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
-	<string>16E163b</string>
+	<string>16C58</string>
 	<key>DTSDKName</key>
 	<string>macosx10.12</string>
 	<key>DTXcode</key>
-	<string>0830</string>
+	<string>0821</string>
 	<key>DTXcodeBuild</key>
-	<string>8W132p</string>
+	<string>8C1002</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2012 Scott Garner and 2017 Robert Welz. All rights reserved.</string>
 	<key>NSPrincipalClass</key>

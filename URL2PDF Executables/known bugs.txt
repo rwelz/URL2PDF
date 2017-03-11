@@ -1,5 +1,0 @@
-Known problems:
-
-6.2.5: 
-- There is a problem with Javascript. If enabled in the cli or in the workflow, most webpages won’t load.
-- It should be mentioned that the Automator extension should be opened at least once in Automator to make Gatekeeper happy.
