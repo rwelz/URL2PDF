@@ -245,7 +245,7 @@
 					D7311F251E718BA20071A7D1 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 4AZCM9652H;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					D7311F471E718D180071A7D1 = {
 						CreatedOnToolsVersion = 8.2.1;
