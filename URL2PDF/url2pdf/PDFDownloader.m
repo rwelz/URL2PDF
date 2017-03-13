@@ -9,6 +9,15 @@
 
 #import "PDFDownloader.h"
 
+@implementation NSURLRequest (NSURLRequestWithIgnoreSSL)
+
++ (BOOL)allowsAnyHTTPSCertificateForHost:(NSString *)host
+{
+    return YES;
+}
+
+@end
+
 @implementation PDFDownloader
 
 @synthesize loadComplete;
@@ -98,7 +107,7 @@
         
         [[webView mainFrame] loadRequest:[NSURLRequest requestWithURL:curURL 
                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy 
-                                                      timeoutInterval:5]];    
+                                                      timeoutInterval:90]];
         
         // Loop while waiting for responses.
         
@@ -237,20 +246,22 @@
 
 #pragma mark Webview Delegates
 
+- (void)webView:(WebView*)sender didFailLoadWithError:(NSError *)error forFrame:(WebFrame *)frame
+{
+    NSLog(@"didFailLoadWithError");
+}
+
+
 - (void)webView:(WebView*)sender didStartProvisionalLoadForFrame:(WebFrame*)frame
 {	
     if ([sender mainFrame] == frame) {
-        //[[sender windowScriptObject] setValue:@"javascript:$.showMore('description')" forKeyPath:@"location.href"];
-		//NSLog(@"didStartProvisionalLoadForFrame");
+	//NSLog(@"didStartProvisionalLoadForFrame");
     }
-    //[[sender windowScriptObject] setValue:@"$.showMore('description')" forKeyPath:@"location.href"];
-    //NSString *href = [[sender windowScriptObject] evaluateWebScript:@"window.open('showMore('description')','_self')"];
-    //[[sender windowScriptObject] setValue:@"javascript:$.showMore('description')" forKeyPath:@"location.href"];
 }
 
 - (void)webView:(WebView *)sender didFailProvisionalLoadWithError:(NSError *)error forFrame:(WebFrame *)frame
 {
-    printf("Failed to load URL\n");
+    printf("Failed to load URL\n Error: %s", [[error description] UTF8String]);
     exit(EXIT_FAILURE);    
     
 }
@@ -260,7 +271,6 @@
 	if ([sender mainFrame] == frame) {
 		//NSLog(@"didCommitLoadForFrame");
 	}
-    //[[sender windowScriptObject] setValue:@"javascript:showMore('description')" forKeyPath:@"location.href"];
 }
 
 - (void)webView:(WebView *)sender didReceiveTitle:(NSString *)title forFrame:(WebFrame *)frame
@@ -275,14 +285,6 @@
 - (void)webView:(WebView*)sender didFinishLoadForFrame:(WebFrame*)frame
 {
 	if ([sender mainFrame] == frame) {
-        // showMore('description');
-        //NSString *returnvalue = [sender stringByEvaluatingJavaScriptFromString:@"window.open('$.showMore('description')','_self')';
-        //NSString *returnvalue = [sender stringByEvaluatingJavaScriptFromString:@"window.open('http://www.n-tv.de','_self');"];
-        //[[sender windowScriptObject] evaluateWebScript:@"window.open('$.showMore('description');"];
-        //NSString *href = [[sender windowScriptObject] evaluateWebScript:@"href='$.showMore('description')'"];
-        //[[sender windowScriptObject] setValue:@"showMore('description')" forKeyPath:@"location.href"];
-        
-    //    [[sender windowScriptObject] setValue:@"javascript:$.showMore('description')" forKeyPath:@"location.href"];
         [self setLoadComplete:YES];
 	}
 }
