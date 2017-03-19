@@ -48,7 +48,7 @@
     
     // Webview
     
-    NSRect frame = NSMakeRect(0,0,1,1);
+    NSRect frame = NSMakeRect(0,0,500,900);
     
     WKWebViewConfiguration *theConfiguration = [[WKWebViewConfiguration alloc] init];
     WKWebView *webView = [[WKWebView alloc] initWithFrame:frame configuration:theConfiguration];
@@ -59,7 +59,7 @@
     
     NSWindow * window = [[NSWindow alloc]
                          initWithContentRect:NSMakeRect(0,0,1024,768)
-                         styleMask:NSBorderlessWindowMask
+                         styleMask:NSWindowStyleMaskBorderless
                          backing:NSBackingStoreNonretained defer:NO];
     [window setContentView:webView];
     
@@ -67,25 +67,26 @@
     NSEnumerator *enumerate = [input objectEnumerator];
     NSURL *curURL;
     
-    while (curURL = [enumerate nextObject])
-    {
-        bool isRunning;
-        [self setPageTitle:nil];
-        [self setLoadComplete:NO];
-        
-        //NSURL *nsurl=[NSURL URLWithString:@"http://www.apple.com"];
-        NSURLRequest *nsrequest=[NSURLRequest requestWithURL:curURL];
-        [webView loadRequest:nsrequest];
-        
-    }
+//    while (curURL = [enumerate nextObject])
+//    {
+//        bool isRunning;
+//        [self setPageTitle:nil];
+//        [self setLoadComplete:NO];
+//        
+//        NSURL *nsurl=[NSURL URLWithString:@"http://www.apple.com"];
+//        NSURLRequest *nsrequest=[NSURLRequest requestWithURL:curURL];
+//        [webView loadRequest:nsrequest];
+//        
+//    }
+    
+    NSURL *nsurl=[NSURL URLWithString:@"http://www.apple.de"];
+    NSURLRequest *nsrequest=[NSURLRequest requestWithURL:nsurl];
+    [webView loadRequest:nsrequest];
     
     
+    NSString *saveFilePath = @"/Users/rwelz/URL2PDF Output/out.pdf";
     
-    
-    
-    NSString *saveFilePath = @"";
-    
-    [self printWebView:webView fileName:saveFilePath paginate:printPaginate orientation:printOrientation];
+    //[self printWebView:webView fileName:saveFilePath paginate:printPaginate orientation:printOrientation];
     
     [output addObject:saveFilePath];
     
@@ -94,11 +95,34 @@
 
 - (void)printWebView:(WKWebView *) webView fileName:(NSString *)filename paginate:(BOOL)printPaginate orientation:(int)printOrientation
 {
+    NSView *printView = webView.superview;
     
+    NSRect printRect = [printView frame];
     
+    NSData *printData = [printView dataWithPDFInsideRect:printRect];
     
+    [printData writeToFile:filename atomically:YES];
 }
 
 #pragma mark WKWebView Delegates
+
+- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation
+{
+    NSLog(@"Did start loading.");
+}
+
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation
+{
+    NSView *printView = [[webView window] contentView];
+    
+    NSRect printRect = [printView frame];
+    
+    NSData *printData = [printView dataWithPDFInsideRect:printRect];
+    
+    NSString *saveFilePath = @"/Users/rwelz/URL2PDF Output/out.pdf";
+    [printData writeToFile:saveFilePath atomically:YES];
+    
+    exit(EXIT_SUCCESS);
+}
 
 @end

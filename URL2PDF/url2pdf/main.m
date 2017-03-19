@@ -256,8 +256,8 @@ int main(const int argc, char **argv)
                           nil];
         
         PDFDownloader *downloader = [[PDFDownloader alloc] init];
-//        
-//        NSArray *output = [downloader downloadURLs:input parameters:parameters];
+        
+        NSArray *output = [downloader downloadURLs:input parameters:parameters];
 //        if(openFolder == YES)
 //        {
 //            if([output count] > 0)
@@ -275,6 +275,10 @@ int main(const int argc, char **argv)
 //                [[NSWorkspace sharedWorkspace] openURL: fileURL];
 //            }
 //        }
+        
+        NSRunLoop* myRunLoop = [NSRunLoop mainRunLoop];
+        
+        [myRunLoop run];
     }
     return 0;
 }

@@ -97,7 +97,6 @@
 		D7311F621E718EA60071A7D1 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D747F8A11E7E7F0400AD4FD2 /* PDFDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFDownloader.h; sourceTree = "<group>"; };
 		D747F8A21E7E7F0400AD4FD2 /* PDFDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFDownloader.m; sourceTree = "<group>"; };
-		D7B9E32C1E75B02A004D0C63 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,7 +148,6 @@
 				D7311F2F1E718BDD0071A7D1 /* main.m */,
 				D747F8A11E7E7F0400AD4FD2 /* PDFDownloader.h */,
 				D747F8A21E7E7F0400AD4FD2 /* PDFDownloader.m */,
-				D7B9E32C1E75B02A004D0C63 /* Info.plist */,
 				D7311F331E718BF20071A7D1 /* Supporting Files */,
 			);
 			path = url2pdf;
@@ -454,7 +452,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_EXPAND_BUILD_SETTINGS = NO;
 				INFOPLIST_FILE = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -502,7 +500,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_EXPAND_BUILD_SETTINGS = NO;
 				INFOPLIST_FILE = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
