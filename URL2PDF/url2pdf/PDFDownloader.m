@@ -1,292 +1,104 @@
 //
 //  PDFDownloader.m
-//  DownloadPDF
+//  URL2PDF
 //
-//  Created by Scott Garner on 5/23/12.
-//  Modified by welz.willi@gmail.com (c) 1/27/17
-//  Copyright (c) 2012 Project J38. All rights reserved.
+//  Created by Robert Welz on 19.03.17.
+//
 //
 
 #import "PDFDownloader.h"
-
-@implementation NSURLRequest (NSURLRequestWithIgnoreSSL)
-
-+ (BOOL)allowsAnyHTTPSCertificateForHost:(NSString *)host
-{
-    return YES;
-}
-
-@end
+#import "WebKit/WebKit.h"
 
 @implementation PDFDownloader
 
 @synthesize loadComplete;
 @synthesize pageTitle;
 
-
 - (id)downloadURLs:(id)input parameters: (NSMutableDictionary *) parameters
 {
-    
-    // Retrieve Parameters                                
+    // Retrieve Parameters
     
     NSString *savePath = [ parameters objectForKey:@"savePath"];
     int fileNameFrom = [[ parameters objectForKey:@"fileNameFrom"] intValue];
     
     int printOrientation = [[ parameters objectForKey:@"printOrientation"] intValue];
     BOOL printPaginate = [[ parameters objectForKey:@"printPaginate"] boolValue];
-    BOOL printBackgrounds = [[ parameters objectForKey:@"printBackgrounds"] boolValue];	
+    BOOL printBackgrounds = [[ parameters objectForKey:@"printBackgrounds"] boolValue];
     
-    BOOL loadImages = [[ parameters objectForKey:@"loadImages"] boolValue];	
-    BOOL enableJavaScript = [[ parameters objectForKey:@"enableJavaScript"] boolValue];	                                       
+    BOOL loadImages = [[ parameters objectForKey:@"loadImages"] boolValue];
+    BOOL enableJavaScript = [[ parameters objectForKey:@"enableJavaScript"] boolValue];
     
     // Paper Size
     
     NSPrintInfo *printInfo = [NSPrintInfo sharedPrintInfo];
     NSSize pageSize = [printInfo paperSize];
     
-	int printWidth;
-	int printHeight;
-	switch (printOrientation) {
-		case 0:
-			printWidth = pageSize.width;
-			printHeight = pageSize.height;
-			break;
-		case 1:
-			printWidth = pageSize.height;
-			printHeight = pageSize.width;
-			break;
-	}	
+    int printWidth;
+    int printHeight;
+    switch (printOrientation) {
+        case 0:
+            printWidth = pageSize.width;
+            printHeight = pageSize.height;
+            break;
+        case 1:
+            printWidth = pageSize.height;
+            printHeight = pageSize.width;
+            break;
+    }
     
     // Webview
     
     NSRect frame = NSMakeRect(0,0,1,1);
     
-    WebView *webView = [[WebView alloc] initWithFrame:frame];
-    [webView setMaintainsBackForwardList:NO];	
-    [webView setFrameLoadDelegate:self];
-    [webView setResourceLoadDelegate:self];
-    [webView setMediaStyle:@"screen"];
+    WKWebViewConfiguration *theConfiguration = [[WKWebViewConfiguration alloc] init];
+    WKWebView *webView = [[WKWebView alloc] initWithFrame:frame configuration:theConfiguration];
+    webView.navigationDelegate = self;
+    
     
     // Window
     
-    NSWindow * window = [[NSWindow alloc]  
-                         initWithContentRect:NSMakeRect(0,0,1024,768)                        
-                         styleMask:NSBorderlessWindowMask                         
+    NSWindow * window = [[NSWindow alloc]
+                         initWithContentRect:NSMakeRect(0,0,1024,768)
+                         styleMask:NSBorderlessWindowMask
                          backing:NSBackingStoreNonretained defer:NO];
-    [window setContentView:webView];    
-    
-    // Static Prefernces
-    
-    [[webView preferences] setAllowsAnimatedImages:NO];	
-    [[webView preferences] setAllowsAnimatedImageLooping:NO];
-    [[webView preferences] setPlugInsEnabled:NO];
-    [[webView preferences] setJavaEnabled:NO];	
-    [[webView preferences] setJavaScriptCanOpenWindowsAutomatically:NO];
-    
-    // Optional preferences
-    
-    [[webView preferences] setJavaScriptEnabled:enableJavaScript];
-	[[webView preferences] setShouldPrintBackgrounds:printBackgrounds];
-	[[webView preferences] setLoadsImagesAutomatically:loadImages];	        
-    
-	// Process each URL
+    [window setContentView:webView];
     
     NSMutableArray *output = [NSMutableArray arrayWithCapacity:[input count]];
     NSEnumerator *enumerate = [input objectEnumerator];
-    NSURL *curURL;	
-	
-	while (curURL = [enumerate nextObject]) {
-        
-        //NSLog(@"Downloading URL: %@", [curURL absoluteString]);
-        
-        // Send Requests
-        
+    NSURL *curURL;
+    
+    while (curURL = [enumerate nextObject])
+    {
         bool isRunning;
-		[self setPageTitle:nil];
-		[self setLoadComplete:NO];  
+        [self setPageTitle:nil];
+        [self setLoadComplete:NO];
         
-        [[webView mainFrame] loadRequest:[NSURLRequest requestWithURL:curURL 
-                                                          cachePolicy:NSURLRequestUseProtocolCachePolicy 
-                                                      timeoutInterval:90]];
+        //NSURL *nsurl=[NSURL URLWithString:@"http://www.apple.com"];
+        NSURLRequest *nsrequest=[NSURLRequest requestWithURL:curURL];
+        [webView loadRequest:nsrequest];
         
-        // Loop while waiting for responses.
-        
-        NSDate* next = [NSDate dateWithTimeIntervalSinceNow:1.0]; 
-        do {
-            isRunning = [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:next];
-        } while (![self loadComplete]);
-        
-        [[webView mainFrame] stopLoading];
-        
-        // Filename Fuss
-        
-        NSString *saveFilePath = [self getFileNameAt:savePath from:fileNameFrom forURL:curURL];
-        
-        // Print It
-        
-        [self printWebView:webView fileName:saveFilePath paginate:printPaginate orientation:printOrientation];    
-        
-		[output addObject:saveFilePath];
-        
-	}
-    
-	return (output);    
-}
-
-#pragma mark Filename Handling
-
-- (NSString *)getFileNameAt:(NSString *)savePath from:(int)fileNameFrom forURL:(NSURL *) url
-{
-    savePath = [savePath stringByExpandingTildeInPath];
-    
-    if ([self pageTitle] == nil)
-        [self setPageTitle:@"Untitled"];
-    
-    NSString *saveFile;
-    NSString *saveFilePath;		
-    
-    // Set filename source
-    
-    switch (fileNameFrom) {
-        case 0:
-            if ([[url path] length] > 1)
-                saveFile = [[[[url path] lastPathComponent] stringByDeletingPathExtension]
-                            stringByAppendingPathExtension:@"pdf"];
-            else
-                saveFile = [[url host] stringByAppendingPathExtension:@"pdf"];
-            break;
-        case 1:
-            // No forward slashes are allowed in file names, so we replace them with a colon.
-            saveFile = [[[[self pageTitle] componentsSeparatedByString:@"/"] componentsJoinedByString:@":"] stringByAppendingPathExtension:@"pdf"];
-            break;
-    }	
-    
-    saveFilePath = [savePath stringByAppendingPathComponent:saveFile];	
-    
-    // Don't overwrite existing files.
-    
-    int renameCounter=1;		
-    while ([[NSFileManager defaultManager] fileExistsAtPath:saveFilePath]) {
-        saveFilePath = [savePath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%i.%@",[saveFile stringByDeletingPathExtension],renameCounter++,[saveFile pathExtension]]];
-    }     
-    
-    // Return safe path
-    
-    return saveFilePath;
-}
-
-- (void)printWebView:(WebView *) webView fileName:(NSString *)filename paginate:(BOOL)printPaginate orientation:(int)printOrientation;
-{
-	// Get Print View...
-	NSView *printView = [[[webView mainFrame] frameView] documentView];
-    
-    [[[webView mainFrame] frameView] setAllowsScrolling:NO];
-    
-    if (printPaginate) {
-		// To paginate we have to fake a print
-		
-		NSMutableDictionary *printInfoDict;
-		printInfoDict = [NSMutableDictionary dictionaryWithDictionary:[[NSPrintInfo sharedPrintInfo] dictionary]];
-		//[printInfoDict setObject:filename forKey:NSPrintSavePath];
-        [printInfoDict setObject:[NSURL fileURLWithPath:filename] forKey:NSPrintJobSavingURL];
-		
-		NSPrintInfo *printInfo = [[NSPrintInfo alloc] initWithDictionary: printInfoDict];
-		[printInfo setHorizontallyCentered:NO];
-		[printInfo setVerticallyCentered:NO];
-		[printInfo setJobDisposition:NSPrintSaveJob];		
-		
-		// Handle margins
-        
-		NSRect imageableBounds = [printInfo imageablePageBounds];
-		NSSize paperSize = [printInfo paperSize];
-		if (NSWidth(imageableBounds) > paperSize.width) {
-			imageableBounds.origin.x = 0;
-			imageableBounds.size.width = paperSize.width;
-		}
-		if (NSHeight(imageableBounds) > paperSize.height) {
-			imageableBounds.origin.y = 0;
-			imageableBounds.size.height = paperSize.height;
-		}
-        
-		[printInfo setBottomMargin:NSMinY(imageableBounds)];
-		[printInfo setTopMargin:paperSize.height - NSMinY(imageableBounds) - NSHeight(imageableBounds)];
-		[printInfo setLeftMargin:NSMinX(imageableBounds)];
-		[printInfo setRightMargin:paperSize.width - NSMinX(imageableBounds) - NSWidth(imageableBounds)];
-        
-		// Set orientation
-		
-		switch (printOrientation) {
-			case 0:
-                [printInfo setOrientation:NSPaperOrientationPortrait];
-				break;
-			case 1:
-                [printInfo setOrientation:NSPaperOrientationLandscape];
-				break;
-		}			
-        
-		// Create print operation
-		
-		NSPrintOperation *printOp;
-		printOp = [NSPrintOperation printOperationWithView:printView printInfo:printInfo];
-		[printOp setShowsPrintPanel:NO];
-		[printOp setShowsProgressPanel:NO];
-		[printOp runOperation];
-		        
-    } else {
-        // No pagination
-        
-        NSRect printRect = [printView frame];
-        NSData *printData = [printView dataWithPDFInsideRect:printRect];
-        [printData writeToFile:filename atomically:YES];    
     }
     
-    printf("%s", [filename UTF8String]);
+    
+    
+    
+    
+    NSString *saveFilePath = @"";
+    
+    [self printWebView:webView fileName:saveFilePath paginate:printPaginate orientation:printOrientation];
+    
+    [output addObject:saveFilePath];
+    
+    return output;
+}
+
+- (void)printWebView:(WKWebView *) webView fileName:(NSString *)filename paginate:(BOOL)printPaginate orientation:(int)printOrientation
+{
+    
+    
     
 }
 
-#pragma mark Webview Delegates
-
-- (void)webView:(WebView*)sender didFailLoadWithError:(NSError *)error forFrame:(WebFrame *)frame
-{
-    NSLog(@"didFailLoadWithError");
-}
-
-
-- (void)webView:(WebView*)sender didStartProvisionalLoadForFrame:(WebFrame*)frame
-{	
-    if ([sender mainFrame] == frame) {
-	//NSLog(@"didStartProvisionalLoadForFrame");
-    }
-}
-
-- (void)webView:(WebView *)sender didFailProvisionalLoadWithError:(NSError *)error forFrame:(WebFrame *)frame
-{
-    printf("Failed to load URL\n Error: %s", [[error description] UTF8String]);
-    exit(EXIT_FAILURE);    
-    
-}
-
-- (void)webView:(WebView*)sender didCommitLoadForFrame:(WebFrame*)frame
-{	
-	if ([sender mainFrame] == frame) {
-		//NSLog(@"didCommitLoadForFrame");
-	}
-}
-
-- (void)webView:(WebView *)sender didReceiveTitle:(NSString *)title forFrame:(WebFrame *)frame
-{
-    
-	if ([sender mainFrame] == frame) {
-		[self setPageTitle:title];
-	}
-    [[sender windowScriptObject] setValue:@"javascript:$.showMore('description')" forKeyPath:@"location.href"];
-}
-
-- (void)webView:(WebView*)sender didFinishLoadForFrame:(WebFrame*)frame
-{
-	if ([sender mainFrame] == frame) {
-        [self setLoadComplete:YES];
-	}
-}
+#pragma mark WKWebView Delegates
 
 @end

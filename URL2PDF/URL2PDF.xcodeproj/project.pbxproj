@@ -25,7 +25,6 @@
 		D7253F051E7192B700C118C1 /* Download URLs as PDFs.action in CopyFiles */ = {isa = PBXBuildFile; fileRef = D7311F481E718D180071A7D1 /* Download URLs as PDFs.action */; };
 		D7253F061E7192BA00C118C1 /* url2pdf in CopyFiles */ = {isa = PBXBuildFile; fileRef = D7311F261E718BA20071A7D1 /* url2pdf */; };
 		D7311F311E718BDD0071A7D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D7311F2F1E718BDD0071A7D1 /* main.m */; };
-		D7311F321E718BDD0071A7D1 /* PDFDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = D7311F301E718BDD0071A7D1 /* PDFDownloader.m */; };
 		D7311F3A1E718C6A0071A7D1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7311F371E718C6A0071A7D1 /* Foundation.framework */; };
 		D7311F3B1E718C6A0071A7D1 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7311F381E718C6A0071A7D1 /* WebKit.framework */; };
 		D7311F3D1E718C8E0071A7D1 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7311F3C1E718C8E0071A7D1 /* AppKit.framework */; };
@@ -36,6 +35,7 @@
 		D7311F651E718EA60071A7D1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7311F621E718EA60071A7D1 /* Cocoa.framework */; };
 		D7311F661E718EC80071A7D1 /* main.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7311F401E718CF00071A7D1 /* main.xib */; };
 		D7311F671E718ECD0071A7D1 /* url2pdf in Resources */ = {isa = PBXBuildFile; fileRef = D7311F261E718BA20071A7D1 /* url2pdf */; };
+		D747F8A31E7E7F0400AD4FD2 /* PDFDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = D747F8A21E7E7F0400AD4FD2 /* PDFDownloader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,9 +80,7 @@
 
 /* Begin PBXFileReference section */
 		D7311F261E718BA20071A7D1 /* url2pdf */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = url2pdf; sourceTree = BUILT_PRODUCTS_DIR; };
-		D7311F2E1E718BDD0071A7D1 /* PDFDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFDownloader.h; sourceTree = "<group>"; };
 		D7311F2F1E718BDD0071A7D1 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D7311F301E718BDD0071A7D1 /* PDFDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFDownloader.m; sourceTree = "<group>"; };
 		D7311F341E718C080071A7D1 /* URL2PDF-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "URL2PDF-Prefix.pch"; sourceTree = "<group>"; };
 		D7311F361E718C6A0071A7D1 /* AppKitScripting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKitScripting.framework; path = System/Library/Frameworks/AppKitScripting.framework; sourceTree = SDKROOT; };
 		D7311F371E718C6A0071A7D1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -97,6 +95,8 @@
 		D7311F601E718EA60071A7D1 /* AppleScriptObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppleScriptObjC.framework; path = System/Library/Frameworks/AppleScriptObjC.framework; sourceTree = SDKROOT; };
 		D7311F611E718EA60071A7D1 /* Automator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Automator.framework; path = System/Library/Frameworks/Automator.framework; sourceTree = SDKROOT; };
 		D7311F621E718EA60071A7D1 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		D747F8A11E7E7F0400AD4FD2 /* PDFDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFDownloader.h; sourceTree = "<group>"; };
+		D747F8A21E7E7F0400AD4FD2 /* PDFDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFDownloader.m; sourceTree = "<group>"; };
 		D7B9E32C1E75B02A004D0C63 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,9 +146,9 @@
 		D7311F281E718BA20071A7D1 /* url2pdf */ = {
 			isa = PBXGroup;
 			children = (
-				D7311F2E1E718BDD0071A7D1 /* PDFDownloader.h */,
 				D7311F2F1E718BDD0071A7D1 /* main.m */,
-				D7311F301E718BDD0071A7D1 /* PDFDownloader.m */,
+				D747F8A11E7E7F0400AD4FD2 /* PDFDownloader.h */,
+				D747F8A21E7E7F0400AD4FD2 /* PDFDownloader.m */,
 				D7B9E32C1E75B02A004D0C63 /* Info.plist */,
 				D7311F331E718BF20071A7D1 /* Supporting Files */,
 			);
@@ -315,7 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7311F311E718BDD0071A7D1 /* main.m in Sources */,
-				D7311F321E718BDD0071A7D1 /* PDFDownloader.m in Sources */,
+				D747F8A31E7E7F0400AD4FD2 /* PDFDownloader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
