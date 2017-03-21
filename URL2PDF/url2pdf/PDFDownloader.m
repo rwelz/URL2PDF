@@ -107,7 +107,7 @@
         
         [[webView mainFrame] loadRequest:[NSURLRequest requestWithURL:curURL 
                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy 
-                                                      timeoutInterval:90]];
+                                                      timeoutInterval:60]];
         
         // Loop while waiting for responses.
         
