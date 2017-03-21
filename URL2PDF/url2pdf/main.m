@@ -235,6 +235,23 @@ int main(const int argc, char **argv)
         NSMutableDictionary *parameters = parseOptions(argc, argv);
         //        NSLog(@"%@",parameters);
         
+        NSString *scripts = [parameters objectForKey:@"scripts"];
+        NSArray *scriptsToExecute = [scripts componentsSeparatedByString:@","];
+        if((scriptsToExecute != nil) && ([scriptsToExecute count] != 0))
+        {
+            for(NSString *script in scriptsToExecute)
+            {
+                if([script isEqualToString:@""])
+                {
+                    printf("Error: No whitespace allowed to separate script parameters!\n");
+                    exit(EXIT_FAILURE);
+                }
+            }
+        }
+            
+            
+            
+        
         BOOL openFolder = [[ parameters objectForKey:@"openFolder"] boolValue];
         BOOL openFile = [[ parameters objectForKey:@"openFile"] boolValue];
         NSString *savePath = [ parameters objectForKey:@"savePath"];

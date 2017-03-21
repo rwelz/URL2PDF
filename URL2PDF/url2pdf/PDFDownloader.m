@@ -285,7 +285,7 @@
     else
     {
         NSArray *scriptsToExecute = [self.scripts componentsSeparatedByString:@","];
-        if(scriptsToExecute != nil && [scriptsToExecute count] != 0)
+        if((scriptsToExecute != nil) && ([scriptsToExecute count] != 0))
         {
             for(NSString *script in scriptsToExecute)
             {
