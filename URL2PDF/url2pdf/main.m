@@ -258,27 +258,23 @@ int main(const int argc, char **argv)
         PDFDownloader *downloader = [[PDFDownloader alloc] init];
         
         NSArray *output = [downloader downloadURLs:input parameters:parameters];
-//        if(openFolder == YES)
-//        {
-//            if([output count] > 0)
-//            {
-//                NSURL *fileURL = [NSURL fileURLWithPath: output[0]];
-//                NSURL *folderURL = [fileURL URLByDeletingLastPathComponent];
-//                [[NSWorkspace sharedWorkspace] openURL: folderURL];
-//            }
-//        }
-//        if(openFile == YES)
-//        {
-//            for (NSString *savePath in output)
-//            {
-//                NSURL *fileURL = [NSURL fileURLWithPath: savePath];
-//                [[NSWorkspace sharedWorkspace] openURL: fileURL];
-//            }
-//        }
-        
-        NSRunLoop* myRunLoop = [NSRunLoop mainRunLoop];
-        
-        [myRunLoop run];
+        if(openFolder == YES)
+        {
+            if([output count] > 0)
+            {
+                NSURL *fileURL = [NSURL fileURLWithPath: output[0]];
+                NSURL *folderURL = [fileURL URLByDeletingLastPathComponent];
+                [[NSWorkspace sharedWorkspace] openURL: folderURL];
+            }
+        }
+        if(openFile == YES)
+        {
+            for (NSString *savePath in output)
+            {
+                NSURL *fileURL = [NSURL fileURLWithPath: savePath];
+                [[NSWorkspace sharedWorkspace] openURL: fileURL];
+            }
+        }
     }
     return 0;
 }

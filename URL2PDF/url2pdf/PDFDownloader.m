@@ -276,17 +276,23 @@
 - (void)webView:(WebView *)sender didReceiveTitle:(NSString *)title forFrame:(WebFrame *)frame
 {
     
-	if ([sender mainFrame] == frame) {
+	if ([sender mainFrame] == frame)
+    {
 		[self setPageTitle:title];
 	}
-    [[sender windowScriptObject] setValue:@"javascript:$.showMore('description')" forKeyPath:@"location.href"];
+    else
+    {
+        [[sender windowScriptObject] setValue:@"javascript:$.showMore('description')" forKeyPath:@"location"];
+    }
 }
 
 - (void)webView:(WebView*)sender didFinishLoadForFrame:(WebFrame*)frame
 {
-	if ([sender mainFrame] == frame) {
+	if ([sender mainFrame] == frame)
+    {
         [self setLoadComplete:YES];
 	}
+
 }
 
 @end
