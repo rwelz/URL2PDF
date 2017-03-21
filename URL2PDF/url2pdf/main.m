@@ -248,9 +248,6 @@ int main(const int argc, char **argv)
                 }
             }
         }
-            
-            
-            
         
         BOOL openFolder = [[ parameters objectForKey:@"openFolder"] boolValue];
         BOOL openFile = [[ parameters objectForKey:@"openFile"] boolValue];
