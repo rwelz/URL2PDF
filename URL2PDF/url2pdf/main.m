@@ -16,12 +16,13 @@ NSString * const kDefaultDirectory = @"~/URL2PDF Output/";
 
 void printUsage() {
     printf("The original URL2PDF 6.1 (c) 2012 Scott Garner\n");
-    printf("URL2PDF 6.2.3 (c) 2017 Robert Welz\n");
+    printf("URL2PDF 6.3.0 (c) 2017 Robert Welz\n");
     printf("------------------------------------------------------\n");
     printf("Options:\n");
     printf("  --help                        -h      Displays this message\n");
     printf("  --url=<URL>                   -u      URL to download - needs to start with http:// or https://\n");
     printf("  --enable-javascript=<BOOL>    -j      Enable javascript, YES or NO - NO is default if paramter not given\n");
+    printf("  --script=<STRING>             -s      Script function in web page to execute.\n                                        Needs --enable-javascript=YES or -j YES\n                                        For example: -s \"javascript:$.showMore('description')\",\"javascript:$.showMore('release_notes')\"\n                                        Multiple script functions must be separated by ','\n");
     printf("  --print-paginate=<BOOL>       -g      Enable pagination, YES or NO - NO is default if paramter not given\n");
     printf("  --print-backgrounds=<BOOL>    -b      Print Backgrounds, YES or NO - YES is default if paramter not given\n");
     printf("  --load-images=<BOOL>          -i      Load Images, YES or NO - YES is default if paramter not given\n");
@@ -60,11 +61,12 @@ NSMutableDictionary* parseOptions(const int argc, char **argv) {
     
     // Option Table
     
-    char *shortOptions = "hu:j:g:b:i:o:n:c:d:p:";
+    char *shortOptions = "hu:j:s:g:b:i:o:n:c:d:p:";
     const struct option longOptions[] = {
         {"help",                no_argument,        NULL,   'h'},
         {"url",                 required_argument,  NULL,   'u'},
         {"enable-javascript",   required_argument,  NULL,   'j'},
+        {"script",              required_argument,  NULL,   's'},
         {"print-paginate",      required_argument,  NULL,   'g'},
         {"print-backgrounds",   required_argument,  NULL,   'b'},
         {"load-images",         required_argument,  NULL,   'i'},
@@ -105,6 +107,11 @@ NSMutableDictionary* parseOptions(const int argc, char **argv) {
                     printf("Invalid argument for --enable-javascript\n");
                     exit(EXIT_FAILURE);
                 }
+                break;
+            
+            case 's':
+                noParameterGiven = NO;
+                [parameters setObject:[NSString stringWithFormat:@"%s",optarg] forKey:@"scripts"];
                 break;
                 
             case 'g':

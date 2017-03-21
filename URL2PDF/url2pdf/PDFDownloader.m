@@ -22,7 +22,7 @@
 
 @synthesize loadComplete;
 @synthesize pageTitle;
-
+@synthesize scripts;
 
 - (id)downloadURLs:(id)input parameters: (NSMutableDictionary *) parameters
 {
@@ -38,6 +38,8 @@
     
     BOOL loadImages = [[ parameters objectForKey:@"loadImages"] boolValue];	
     BOOL enableJavaScript = [[ parameters objectForKey:@"enableJavaScript"] boolValue];	                                       
+    
+    self.scripts = [ parameters objectForKey:@"scripts"];
     
     // Paper Size
     
@@ -282,7 +284,16 @@
 	}
     else
     {
-        [[sender windowScriptObject] setValue:@"javascript:$.showMore('description')" forKeyPath:@"location"];
+        NSArray *scriptsToExecute = [self.scripts componentsSeparatedByString:@","];
+        if(scriptsToExecute != nil && [scriptsToExecute count] != 0)
+        {
+            for(NSString *script in scriptsToExecute)
+            {
+//            [[sender windowScriptObject] evaluateWebScript:@"javascript:$.showMore('description')"];
+//            [[sender windowScriptObject] evaluateWebScript:@"javascript:$.showMore('release_notes')"];
+                [[sender windowScriptObject] evaluateWebScript:script];
+            }
+        }
     }
 }
 

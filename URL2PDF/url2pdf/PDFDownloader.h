@@ -14,10 +14,12 @@
 @private
     BOOL loadComplete;
     NSString *pageTitle;
+    NSString *scripts;
 }
 
 @property (nonatomic,readwrite) BOOL loadComplete;
 @property (nonatomic,readwrite, copy) NSString *pageTitle;
+@property (nonatomic,readwrite, copy) NSString *scripts;
 
 - (id)downloadURLs:(id)input parameters: (NSMutableDictionary *) parameters;
 
