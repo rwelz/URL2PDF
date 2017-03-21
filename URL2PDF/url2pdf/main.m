@@ -22,7 +22,7 @@ void printUsage() {
     printf("  --help                        -h      Displays this message\n");
     printf("  --url=<URL>                   -u      URL to download - needs to start with http:// or https://\n");
     printf("  --enable-javascript=<BOOL>    -j      Enable javascript, YES or NO - NO is default if paramter not given\n");
-    printf("  --script=<STRING>             -s      Script function in web page to execute.\n                                        Needs --enable-javascript=YES or -j YES\n                                        For example: -s \"javascript:$.showMore('description')\",\"javascript:$.showMore('release_notes')\"\n                                        Multiple script functions must be separated by ','\n");
+    printf("  --script=<STRING>             -s      Script function in web page to execute.\n                                        Needs --enable-javascript=YES or -j YES\n                                        For example: -s \"javascript:$.showMore('description')\",\"javascript:$.showMore('release_notes')\"\n                                        Multiple script functions must be separated by ',' but no whitespace.\n");
     printf("  --print-paginate=<BOOL>       -g      Enable pagination, YES or NO - NO is default if paramter not given\n");
     printf("  --print-backgrounds=<BOOL>    -b      Print Backgrounds, YES or NO - YES is default if paramter not given\n");
     printf("  --load-images=<BOOL>          -i      Load Images, YES or NO - YES is default if paramter not given\n");

@@ -63,7 +63,7 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "-u https://www.macupdate.com/app/mac/30657/calibre -j YES -c YES -s &quot;javascript:$.showMore(&apos;description&apos;)&quot;,&quot;javascript:$.showMore(&apos;release_notes&apos;)&quot;"
+            argument = "-u https://www.macupdate.com/app/mac/30657/calibre -j YES -c YES -s &quot;javascript:$.showMore(&apos;description&apos;)&quot;, &quot;javascript:$.showMore(&apos;release_notes&apos;)&quot;"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
