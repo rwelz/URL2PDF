@@ -23,6 +23,7 @@
 @synthesize loadComplete;
 @synthesize pageTitle;
 @synthesize scripts;
+@synthesize request;
 
 - (id)downloadURLs:(id)input parameters: (NSMutableDictionary *) parameters
 {
@@ -107,9 +108,11 @@
 		[self setPageTitle:nil];
 		[self setLoadComplete:NO];  
         
-        [[webView mainFrame] loadRequest:[NSURLRequest requestWithURL:curURL 
-                                                          cachePolicy:NSURLRequestUseProtocolCachePolicy 
-                                                      timeoutInterval:60]];
+        request = [NSURLRequest requestWithURL:curURL
+                                                 cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                             timeoutInterval:15];
+        
+        [[webView mainFrame] loadRequest:request];
         
         // Loop while waiting for responses.
         
@@ -242,7 +245,7 @@
         [printData writeToFile:filename atomically:YES];    
     }
     
-    printf("%s", [filename UTF8String]);
+    printf("%s\n", [filename UTF8String]);
     
 }
 
@@ -263,7 +266,7 @@
 
 - (void)webView:(WebView *)sender didFailProvisionalLoadWithError:(NSError *)error forFrame:(WebFrame *)frame
 {
-    printf("Failed to load URL\n Error: %s", [[error description] UTF8String]);
+    printf("Failed to load URL\n Error: %s\n", [[error description] UTF8String]);
     exit(EXIT_FAILURE);    
     
 }
@@ -275,6 +278,17 @@
 	}
 }
 
+- (void)webView:(WebView *)sender didCreateJavaScriptContext:(JSContext *)context forFrame:(WebFrame *)frame
+{
+    if((self.scripts != nil) && ([self.scripts count] > 0))
+    {
+        for(NSString *script in self.scripts)
+        {
+            [[sender windowScriptObject] evaluateWebScript:script];
+        }
+    }
+}
+
 - (void)webView:(WebView *)sender didReceiveTitle:(NSString *)title forFrame:(WebFrame *)frame
 {
     
@@ -282,19 +296,6 @@
     {
 		[self setPageTitle:title];
 	}
-    else
-    {
-        NSArray *scriptsToExecute = [self.scripts componentsSeparatedByString:@","];
-        if((scriptsToExecute != nil) && ([scriptsToExecute count] != 0))
-        {
-            for(NSString *script in scriptsToExecute)
-            {
-//            [[sender windowScriptObject] evaluateWebScript:@"javascript:$.showMore('description')"];
-//            [[sender windowScriptObject] evaluateWebScript:@"javascript:$.showMore('release_notes')"];
-                [[sender windowScriptObject] evaluateWebScript:script];
-            }
-        }
-    }
 }
 
 - (void)webView:(WebView*)sender didFinishLoadForFrame:(WebFrame*)frame

@@ -232,22 +232,59 @@ int main(const int argc, char **argv)
         //                          [NSURL URLWithString:@"http://yahoo.com/"],
         //                          nil];
         
-        NSMutableDictionary *parameters = parseOptions(argc, argv);
-        //        NSLog(@"%@",parameters);
+        // parse argv for multiple repeating options and remove them from argv
+        NSMutableArray *options = [NSMutableArray array];
+        for (int i = 0; i < argc; i++) {
+            NSString *str = [[NSString alloc] initWithCString:argv[i] encoding:NSUTF8StringEncoding];
+            [options addObject:str];
+        }
         
-        NSString *scripts = [parameters objectForKey:@"scripts"];
-        NSArray *scriptsToExecute = [scripts componentsSeparatedByString:@","];
-        if((scriptsToExecute != nil) && ([scriptsToExecute count] != 0))
+        NSMutableArray *optionsFiltered = [NSMutableArray array];
+        NSMutableArray *scripts = [NSMutableArray array];
+        
+        for(int i = 0; i < [options count]; i++)
         {
-            for(NSString *script in scriptsToExecute)
+            if([options[i] isEqualToString:@"--script"] || [options[i] isEqualToString:@"-s"])
             {
-                if([script isEqualToString:@""])
+                if(options[i+1] != nil)
                 {
-                    printf("Error: No whitespace allowed to separate script parameters!\n");
-                    exit(EXIT_FAILURE);
+                    [scripts addObject:options[i+1]];
+                    i++;
                 }
             }
+            else
+            {
+                [optionsFiltered addObject:options[i]];
+            }
         }
+        
+        int count = (int)[optionsFiltered count];
+        char **argvec = (char **)malloc(sizeof(const char*)*count);
+        for (int i = 0; i < count; i++)
+        {
+            argvec[i] = strdup([[optionsFiltered objectAtIndex:i] UTF8String]);
+        }
+        
+        NSMutableDictionary *parameters = parseOptions(count, argvec);
+        if((scripts != nil) && ([scripts count] > 0))
+        {
+            [parameters setObject:scripts forKey:@"scripts"];
+        }
+        //        NSLog(@"%@",parameters);
+        
+//        NSString *scripts = [parameters objectForKey:@"scripts"];
+//        NSArray *scriptsToExecute = [scripts componentsSeparatedByString:@","];
+//        if((scriptsToExecute != nil) && ([scriptsToExecute count] != 0))
+//        {
+//            for(NSString *script in scriptsToExecute)
+//            {
+//                if([script isEqualToString:@""])
+//                {
+//                    printf("Error: No whitespace allowed to separate script parameters!\n");
+//                    exit(EXIT_FAILURE);
+//                }
+//            }
+//        }
         
         BOOL openFolder = [[ parameters objectForKey:@"openFolder"] boolValue];
         BOOL openFile = [[ parameters objectForKey:@"openFile"] boolValue];
@@ -268,9 +305,6 @@ int main(const int argc, char **argv)
                     NSLog(@"Failed to create directory \"%@\". Error: %@", kDefaultDirectory, error);
             }
         }
-        
-        
-        
         
         NSArray *input = [[NSArray alloc] initWithObjects:
                           [NSURL URLWithString:[parameters objectForKey:@"url"]],
