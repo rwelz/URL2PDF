@@ -232,6 +232,7 @@ int main(const int argc, char **argv)
         //                          [NSURL URLWithString:@"http://yahoo.com/"],
         //                          nil];
         
+        
         // parse argv for multiple repeating options and remove them from argv
         NSMutableArray *options = [NSMutableArray array];
         for (int i = 0; i < argc; i++) {
@@ -264,27 +265,13 @@ int main(const int argc, char **argv)
         {
             argvec[i] = strdup([[optionsFiltered objectAtIndex:i] UTF8String]);
         }
+        // end: parse argv for multiple repeating options and remove them from argv
         
         NSMutableDictionary *parameters = parseOptions(count, argvec);
         if((scripts != nil) && ([scripts count] > 0))
         {
             [parameters setObject:scripts forKey:@"scripts"];
         }
-        //        NSLog(@"%@",parameters);
-        
-//        NSString *scripts = [parameters objectForKey:@"scripts"];
-//        NSArray *scriptsToExecute = [scripts componentsSeparatedByString:@","];
-//        if((scriptsToExecute != nil) && ([scriptsToExecute count] != 0))
-//        {
-//            for(NSString *script in scriptsToExecute)
-//            {
-//                if([script isEqualToString:@""])
-//                {
-//                    printf("Error: No whitespace allowed to separate script parameters!\n");
-//                    exit(EXIT_FAILURE);
-//                }
-//            }
-//        }
         
         BOOL openFolder = [[ parameters objectForKey:@"openFolder"] boolValue];
         BOOL openFile = [[ parameters objectForKey:@"openFile"] boolValue];
