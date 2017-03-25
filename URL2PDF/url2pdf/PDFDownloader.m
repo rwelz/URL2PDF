@@ -278,17 +278,6 @@
 	}
 }
 
-- (void)webView:(WebView *)sender didCreateJavaScriptContext:(JSContext *)context forFrame:(WebFrame *)frame
-{
-    if((self.scripts != nil) && ([self.scripts count] > 0))
-    {
-        for(NSString *script in self.scripts)
-        {
-            [[sender windowScriptObject] evaluateWebScript:script];
-        }
-    }
-}
-
 - (void)webView:(WebView *)sender didReceiveTitle:(NSString *)title forFrame:(WebFrame *)frame
 {
     
@@ -302,6 +291,13 @@
 {
 	if ([sender mainFrame] == frame)
     {
+        if((self.scripts != nil) && ([self.scripts count] > 0))
+        {
+            for(NSString *script in self.scripts)
+            {
+                [[sender windowScriptObject] evaluateWebScript:script];
+            }
+        }
         [self setLoadComplete:YES];
 	}
 
