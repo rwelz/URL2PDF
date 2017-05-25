@@ -15,6 +15,7 @@
     BOOL loadComplete;
     NSString *pageTitle;
     NSArray *scripts;
+    //NSString *scripts;
     NSURLRequest *request;
 }
 

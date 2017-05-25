@@ -27,7 +27,7 @@
 
 - (id)downloadURLs:(id)input parameters: (NSMutableDictionary *) parameters
 {
-    
+    NSLog(@"Was here 10.");
     // Retrieve Parameters                                
     
     NSString *savePath = [ parameters objectForKey:@"savePath"];
@@ -40,8 +40,10 @@
     BOOL loadImages = [[ parameters objectForKey:@"loadImages"] boolValue];	
     BOOL enableJavaScript = [[ parameters objectForKey:@"enableJavaScript"] boolValue];	                                       
     
-    self.scripts = [ parameters objectForKey:@"scripts"];
+    //self.scripts = [ parameters objectForKey:@"scripts"];
     
+    self.scripts = [[ parameters objectForKey:@"scripts"] componentsSeparatedByString:@","];
+    NSLog(@"%@", [NSString stringWithFormat:@"Was here 11. %@", [self.scripts description]]);
     // Paper Size
     
     NSPrintInfo *printInfo = [NSPrintInfo sharedPrintInfo];
@@ -292,6 +294,7 @@
 	if ([sender mainFrame] == frame)
     {
         if((self.scripts != nil) && ([self.scripts count] > 0))
+        //if(self.scripts != nil)
         {
             for(NSString *script in self.scripts)
             {
