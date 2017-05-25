@@ -235,18 +235,12 @@ int main(const int argc, char **argv)
         
         // parse argv for multiple repeating options and remove them from argv
         
-        
-        NSLog(@"Was here 1.");
-        
-        
         NSMutableArray *options = [NSMutableArray array];
         for (int i = 0; i < argc; i++) {
             NSString *str = [[NSString alloc] initWithCString:argv[i] encoding:NSUTF8StringEncoding];
             [options addObject:str];
         }
-        NSLog(@"Was here 2.");
-        NSLog(@"%@", [NSString stringWithFormat:@"got %@", [options description]]);
-        NSLog(@"Was here 3.");
+        NSLog(@"%@", [NSString stringWithFormat:@"received: %@", [options description]]);
         
         NSMutableArray *optionsFiltered = [NSMutableArray array];
         //NSMutableArray *scripts = [NSMutableArray array];
@@ -270,7 +264,7 @@ int main(const int argc, char **argv)
                 [optionsFiltered addObject:options[i]];
             }
         }
-        NSLog(@"Was here 4.");
+
         int count = (int)[optionsFiltered count];
         char **argvec = (char **)malloc(sizeof(const char*)*count);
         for (int i = 0; i < count; i++)
@@ -278,14 +272,13 @@ int main(const int argc, char **argv)
             argvec[i] = strdup([[optionsFiltered objectAtIndex:i] UTF8String]);
         }
         // end: parse argv for multiple repeating options and remove them from argv
-        NSLog(@"Was here 5.");
+
         NSMutableDictionary *parameters = parseOptions(count, argvec);
         if(scripts != nil)
-        //if((scripts != nil) && ([scripts count] > 0))
         {
             [parameters setObject:scripts forKey:@"scripts"];
         }
-        NSLog(@"Was here 6.");
+
         BOOL openFolder = [[ parameters objectForKey:@"openFolder"] boolValue];
         BOOL openFile = [[ parameters objectForKey:@"openFile"] boolValue];
         NSString *savePath = [ parameters objectForKey:@"savePath"];
@@ -309,9 +302,7 @@ int main(const int argc, char **argv)
         NSArray *input = [[NSArray alloc] initWithObjects:
                           [NSURL URLWithString:[parameters objectForKey:@"url"]],
                           nil];
-        
-        NSLog(@"Was here 7.");
-        
+                
         PDFDownloader *downloader = [[PDFDownloader alloc] init];
         
         NSArray *output = [downloader downloadURLs:input parameters:parameters];
