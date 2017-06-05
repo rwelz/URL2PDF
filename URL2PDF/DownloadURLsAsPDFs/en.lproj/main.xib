@@ -23,11 +23,11 @@
                     <tabViewItems>
                         <tabViewItem label="General" identifier="1" id="100101">
                             <view key="view" id="100114">
-                                <rect key="frame" x="10" y="25" width="480" height="144"/>
+                                <rect key="frame" x="10" y="29" width="480" height="140"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <amPathPopUpButton verticalHuggingPriority="750" canChooseDirectories="YES" canChooseNewPaths="YES" canChooseExistingPaths="YES" placeholder="No Selection" id="100181">
-                                        <rect key="frame" x="131" y="114" width="150" height="22"/>
+                                        <rect key="frame" x="131" y="110" width="150" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <amVariablePopUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" id="100182">
                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -108,7 +108,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <button misplaced="YES" id="25l-Bg-HX8">
-                                        <rect key="frame" x="288" y="92" width="152" height="20"/>
+                                        <rect key="frame" x="288" y="88" width="152" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="check" title="Open file after download" bezelStyle="regularSquare" imagePosition="left" controlSize="small" inset="2" id="INU-9O-yQN">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -123,7 +123,7 @@
                                         </connections>
                                     </button>
                                     <textField verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="NO" id="100010">
-                                        <rect key="frame" x="38" y="17" width="391" height="17"/>
+                                        <rect key="frame" x="38" y="13" width="391" height="17"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Find this action helpful? Please consider a donation from the About tab." id="100011">
                                             <font key="font" metaFont="smallSystem"/>
@@ -132,7 +132,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <button misplaced="YES" id="M8R-Fr-F5w">
-                                        <rect key="frame" x="85" y="92" width="166" height="20"/>
+                                        <rect key="frame" x="85" y="88" width="166" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="check" title="Open folder after download" bezelStyle="regularSquare" imagePosition="left" controlSize="small" inset="2" id="n0F-XW-rmD">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -281,7 +281,7 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" controlSize="small" sendsActionOnEndEditing="YES" alignment="center" id="100136">
                                             <font key="font" metaFont="smallSystem"/>
-                                            <string key="title">Download URLs as PDFs [Version 6.3.0]
+                                            <string key="title">Download URLs as PDFs [Version 6.2.6]
 Copyright © 2005-2013 Scott Garner and 2017 Robert Welz</string>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>

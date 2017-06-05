@@ -51,7 +51,7 @@ script DownloadURLsAsPDFs
                 set command to command & " --enable-javascript=NO"
             else
                 set command to command & " --enable-javascript=YES"
-                set command to command & " --script=" & (javaScriptField of actionParameters as text)
+                set command to command & " --script=" & (javaScriptField of actionParameters)
             end if
         
             if fileNameFrom of actionParameters  as integer equals 0 then

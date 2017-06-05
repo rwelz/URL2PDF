@@ -1,5 +1,11 @@
+6/6/17 version 6.2.6 by Robert Welz (welz.willi@gmail.com)
+- java script functions can be called in own service by entering all functions separated by quotes and commas, for example for https://www.macupdate.com/app/mac/18510/devonthink-pro you would enter
+"javascript:$.showMore('description')","javascript:$.showMore('release_notes')"
+in the advanced tab of service in Automator.
+
+
 3/10/17 version 6.2.5 by Robert Welz (welz.willi@gmail.com)
-- added "open folder" and "open file" options to open folder which contains pdf or open pdf in defauklt viewer after download.
+- added "open folder" and "open file" options to open folder which contains pdf or open pdf in default viewer after download.
 
 3/10/17 version 6.2.4 by Robert Welz (welz.willi@gmail.com)
 Better example workflow

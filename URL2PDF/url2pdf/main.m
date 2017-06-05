@@ -16,7 +16,7 @@ NSString * const kDefaultDirectory = @"~/URL2PDF Output/";
 
 void printUsage() {
     printf("The original URL2PDF 6.1 (c) 2012 Scott Garner\n");
-    printf("URL2PDF 6.3.0 (c) 2017 Robert Welz\n");
+    printf("URL2PDF 6.2.6 (c) 2017 Robert Welz\n");
     printf("------------------------------------------------------\n");
     printf("Options:\n");
     printf("  --help                        -h      Displays this message\n");
